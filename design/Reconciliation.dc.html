@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; color: #8a93a3; background: #0a0d12;
+      font: 15px/1.5 'Cascadia Code', 'Cascadia Mono', Consolas, 'JetBrains Mono', ui-monospace, monospace;
+      font-synthesis: none; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: Cambria, Constantia, Georgia, 'Times New Roman', serif; color: #eef1f5; margin: 0; }
+    p { margin: 0; }
+    a { color: #ffb020; } a:hover { color: #ffc457; }
+    .lbl { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #566073; }
+    .num { font-variant-numeric: tabular-nums; }
+    .tag { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+  </style>
+</helmet>
+
+<div style="width: 1180px; min-height: 860px; display: flex; flex-direction: column; background: #0a0d12">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; border-bottom: 1px solid #232b38; background: linear-gradient(to bottom, #10141b, #0a0d12)">
+    <div style="display: flex; align-items: baseline; gap: 10px">
+      <span style="color: #ffb020; align-self: center; display: inline-flex">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+          <path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"></path>
+        </svg>
+      </span>
+      <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 22px; font-style: italic; color: #eef1f5; letter-spacing: 0.02em">Registry</span>
+      <span class="lbl">Reconciliation</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 18px">
+      <span style="display: inline-flex; align-items: center; gap: 7px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #57e0a1">
+        <span style="width: 7px; height: 7px; border-radius: 50%; background: #57e0a1"></span>Job running
+      </span>
+      <span class="num" style="font-size: 12px; color: #8a93a3">next in 3m 12s</span>
+      <span style="font-size: 11px; color: #566073">anita@admin</span>
+    </div>
+  </div>
+
+  <div style="flex-grow: 1; padding: 24px 32px 34px; display: flex; flex-direction: column; gap: 20px">
+
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h2 style="font-size: 22px; font-style: italic">Is anything stuck?</h2>
+        <p style="font-size: 12.5px; color: #566073">Payments that have not reached a final state are checked against the gateway every 5 minutes.</p>
+      </div>
+      <button style="font: inherit; font-weight: 600; font-size: 13px; padding: 9px 16px; border-radius: 7px; border: 1px solid transparent; background: #ffb020; color: #1a1200; cursor: pointer; letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 8px">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1M20.5 4v5h-5"></path>
+        </svg>Reconcile all now
+      </button>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px">
+
+      <div style="background: #10141b; border: 1px solid #232b38; border-radius: 10px; padding: 17px 19px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <span style="font-size: 15px; font-weight: 600; color: #eef1f5">Stripe</span>
+          <span class="tag" style="background: rgba(87, 224, 161, 0.14); color: #57e0a1">Healthy</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 3px">
+            <span class="lbl">Examined</span>
+            <span class="num" style="font-size: 19px; color: #eef1f5">184</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 3px">
+            <span class="lbl">Stale</span>
+            <span class="num" style="font-size: 19px; color: #eef1f5">1</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 3px">
+            <span class="lbl">Mismatch</span>
+            <span class="num" style="font-size: 19px; color: #566073">0</span>
+          </div>
+        </div>
+        <span class="num" style="font-size: 11px; color: #566073; padding-top: 11px; border-top: 1px solid #232b38">Last run 14:19:03 &middot; 2 transitions applied</span>
+      </div>
+
+      <div style="background: #10141b; border: 1px solid rgba(255, 93, 93, 0.35); border-radius: 10px; padding: 17px 19px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <span style="font-size: 15px; font-weight: 600; color: #eef1f5">Razorpay</span>
+          <span class="tag" style="background: rgba(255, 93, 93, 0.14); color: #ff5d5d">1 needs review</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 3px">
+            <span class="lbl">Examined</span>
+            <span class="num" style="font-size: 19px; color: #eef1f5">96</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 3px">
+            <span class="lbl">Stale</span>
+            <span class="num" style="font-size: 19px; color: #ffb020">3</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 3px">
+            <span class="lbl">Mismatch</span>
+            <span class="num" style="font-size: 19px; color: #ff5d5d">1</span>
+          </div>
+        </div>
+        <span class="num" style="font-size: 11px; color: #566073; padding-top: 11px; border-top: 1px solid #232b38">Last run 14:19:04 &middot; 3 transitions applied</span>
+      </div>
+
+    </div>
+
+    <div style="background: #10141b; border: 1px solid #232b38; border-radius: 10px; display: flex; flex-direction: column; overflow: hidden">
+
+      <div style="padding: 15px 18px; border-bottom: 1px solid #232b38; display: flex; align-items: center; justify-content: space-between">
+        <span style="font-size: 15px; font-weight: 600; letter-spacing: 0.02em; color: #eef1f5">Needs attention</span>
+        <span class="num" style="font-size: 12px; color: #566073; background: #161c25; border: 1px solid #232b38; border-radius: 999px; padding: 1px 9px">4</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 175px 105px 150px 130px minmax(0, 1fr) 120px; gap: 14px; padding: 9px 18px; background: #161c25; border-bottom: 1px solid #232b38">
+        <span class="lbl">Reference</span>
+        <span class="lbl">Gateway</span>
+        <span class="lbl" style="text-align: right">Amount</span>
+        <span class="lbl">State</span>
+        <span class="lbl">Finding</span>
+        <span class="lbl" style="text-align: right">Action</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 175px 105px 150px 130px minmax(0, 1fr) 120px; gap: 14px; padding: 13px 18px; border-bottom: 1px solid #161c25; align-items: center; background: rgba(255, 93, 93, 0.05)">
+        <span class="num" style="font-size: 12.5px; color: #eef1f5">REG-2026-0031</span>
+        <span style="font-size: 12px; color: #8a93a3">Razorpay</span>
+        <span class="num" style="font-size: 12.5px; color: #eef1f5; text-align: right">&#8377; 1,84,500.00</span>
+        <span class="tag" style="background: rgba(255, 93, 93, 0.14); color: #ff5d5d; justify-self: start">Manual review</span>
+        <span style="font-size: 11.5px; color: #ff5d5d">Gateway reports captured &#8377;&nbsp;1,84,600.00 &mdash; amount differs, not auto-corrected</span>
+        <span style="font-size: 11.5px; color: #ffb020; text-align: right">Investigate</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 175px 105px 150px 130px minmax(0, 1fr) 120px; gap: 14px; padding: 13px 18px; border-bottom: 1px solid #161c25; align-items: center">
+        <span class="num" style="font-size: 12.5px; color: #eef1f5">REG-2026-0044</span>
+        <span style="font-size: 12px; color: #8a93a3">Razorpay</span>
+        <span class="num" style="font-size: 12.5px; color: #eef1f5; text-align: right">&#8377; 62,400.00</span>
+        <span class="tag" style="background: rgba(255, 176, 32, 0.14); color: #ffb020; justify-self: start">Stale 14m</span>
+        <span style="font-size: 11.5px; color: #8a93a3">No webhook received &mdash; will be checked against the gateway on next run</span>
+        <span style="font-size: 11.5px; color: #ffb020; text-align: right">Check now</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 175px 105px 150px 130px minmax(0, 1fr) 120px; gap: 14px; padding: 13px 18px; border-bottom: 1px solid #161c25; align-items: center">
+        <span class="num" style="font-size: 12.5px; color: #eef1f5">REG-2026-0045</span>
+        <span style="font-size: 12px; color: #8a93a3">Razorpay</span>
+        <span class="num" style="font-size: 12.5px; color: #eef1f5; text-align: right">&#8377; 2,10,000.00</span>
+        <span class="tag" style="background: rgba(255, 176, 32, 0.14); color: #ffb020; justify-self: start">Stale 11m</span>
+        <span style="font-size: 11.5px; color: #8a93a3">Authorized, not yet captured</span>
+        <span style="font-size: 11.5px; color: #ffb020; text-align: right">Check now</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 175px 105px 150px 130px minmax(0, 1fr) 120px; gap: 14px; padding: 13px 18px; align-items: center">
+        <span class="num" style="font-size: 12.5px; color: #eef1f5">REG-2026-0046</span>
+        <span style="font-size: 12px; color: #8a93a3">Stripe</span>
+        <span class="num" style="font-size: 12.5px; color: #eef1f5; text-align: right">&#165; 980,000</span>
+        <span class="tag" style="background: rgba(255, 176, 32, 0.14); color: #ffb020; justify-self: start">Stale 10m</span>
+        <span style="font-size: 11.5px; color: #8a93a3">No webhook received &mdash; will be checked against the gateway on next run</span>
+        <span style="font-size: 11.5px; color: #ffb020; text-align: right">Check now</span>
+      </div>
+
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px">
+
+      <div style="display: flex; align-items: flex-start; gap: 11px; background: rgba(255, 93, 93, 0.06); border: 1px solid rgba(255, 93, 93, 0.3); border-radius: 10px; padding: 14px 16px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff5d5d" stroke-width="1.9" stroke-linecap="round" style="flex-shrink: 0; margin-top: 2px">
+          <path d="M12 9v4M12 17h.01M10.3 3.9 2.4 18a1.9 1.9 0 0 0 1.7 2.9h15.8a1.9 1.9 0 0 0 1.7-2.9L13.7 3.9a1.9 1.9 0 0 0-3.4 0z"></path>
+        </svg>
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <span style="font-size: 12.5px; color: #eef1f5; font-weight: 600">Amount mismatches are never auto-corrected</span>
+          <p style="font-size: 11.5px; color: #8a93a3; text-wrap: pretty">Where the gateway and our record disagree on the amount or the currency, the payment is flagged for a person. Silently overwriting a money record is worse than raising it.</p>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: flex-start; gap: 11px; background: rgba(79, 214, 232, 0.07); border: 1px solid rgba(79, 214, 232, 0.28); border-radius: 10px; padding: 14px 16px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4fd6e8" stroke-width="1.9" stroke-linecap="round" style="flex-shrink: 0; margin-top: 2px">
+          <circle cx="12" cy="12" r="9.5"></circle><path d="M12 11v6M12 7.5h.01"></path>
+        </svg>
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <span style="font-size: 12.5px; color: #eef1f5; font-weight: 600">A stale payment is not a lost payment</span>
+          <p style="font-size: 11.5px; color: #8a93a3; text-wrap: pretty">If a gateway never delivers its webhook, the next run asks the gateway directly and corrects the record. Citizens do not need to report it.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+## Node
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.env
+.env.local
+
+## SQLite databases (generated at runtime)
+*.db
+*.db-shm
+*.db-wal
+
+## Design canvas seeded output — regenerate with seed-canvas.mjs
+design/registration-payment-portal.html
+
+## OS junk
+.DS_Store
+Thumbs.db
+
+## Editors
+.vs/
+.idea/

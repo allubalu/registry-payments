@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; background: #fbfaf7; color: #55606f;
+      font: 14px/1.55 -apple-system, 'Segoe UI', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: Cambria, Constantia, Georgia, serif; color: #14181f; margin: 0; }
+    p { margin: 0; }
+    a { color: #b07000; } a:hover { color: #8a5600; }
+    .mono { font-family: 'Cascadia Code', 'Cascadia Mono', Consolas, ui-monospace, monospace;
+      font-variant-numeric: tabular-nums; }
+  </style>
+</helmet>
+
+<div style="width: 1180px; min-height: 860px; display: flex; flex-direction: column; background: #fbfaf7">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px 32px; border-bottom: 1px solid #e2ded4; background: #ffffff">
+    <div style="display: flex; align-items: baseline; gap: 10px">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#b07000" stroke-width="1.7" stroke-linecap="round" style="align-self: center">
+        <path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"></path>
+      </svg>
+      <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 21px; font-style: italic; color: #14181f; letter-spacing: 0.02em">Registry</span>
+      <span style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a93a3">Property Transfer Fees</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px">
+      <span class="mono" style="font-size: 12px; color: #8a93a3">priya.n@example.in</span>
+      <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; background: #f2f0ea; color: #55606f">Citizen</span>
+    </div>
+  </div>
+
+  <div style="display: flex; align-items: flex-start; gap: 10px; padding: 10px 32px; background: rgba(176, 112, 0, 0.09); border-bottom: 1px solid rgba(176, 112, 0, 0.22)">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#b07000" stroke-width="1.8" stroke-linecap="round" style="flex-shrink: 0; margin-top: 1px">
+      <path d="M12 9v4M12 17h.01M10.3 3.9 2.4 18a1.9 1.9 0 0 0 1.7 2.9h15.8a1.9 1.9 0 0 0 1.7-2.9L13.7 3.9a1.9 1.9 0 0 0-3.4 0z"></path>
+    </svg>
+    <p style="font-size: 12.5px; color: #8a5600">
+      <strong style="color: #6d4400">Illustrative rates for demonstration only.</strong>
+      Fee figures shown in this service are synthetic and are not any jurisdiction's actual statutory fees.
+    </p>
+  </div>
+
+  <div style="flex-grow: 1; padding: 44px 32px; display: flex; flex-direction: column; align-items: center">
+    <div style="width: 100%; max-width: 940px; display: flex; flex-direction: column; gap: 34px">
+
+      <div style="display: flex; flex-direction: column; gap: 9px">
+        <span class="mono" style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8a93a3">Step 1 of 5</span>
+        <h1 style="font-size: 33px; line-height: 1.18; letter-spacing: -0.01em">Where is the property?</h1>
+        <p style="font-size: 15px; max-width: 620px; text-wrap: pretty">Fees, currency and the questions you'll be asked are all set by the jurisdiction. Choose yours to begin.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px">
+
+        <div style="background: rgba(176, 112, 0, 0.07); border: 1px solid #b07000; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 13px; box-shadow: 0 1px 2px rgba(20, 24, 31, 0.04)">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 10px">
+            <div style="display: flex; flex-direction: column; gap: 2px">
+              <h3 style="font-size: 17px">Telangana</h3>
+              <span style="font-size: 12px; color: #8a93a3">India</span>
+            </div>
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#b07000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0">
+              <circle cx="12" cy="12" r="9.5"></circle><path d="M8 12.4l2.7 2.6L16 9.6"></path>
+            </svg>
+          </div>
+          <div style="display: flex; align-items: center; gap: 7px; flex-wrap: wrap">
+            <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #ffffff; border: 1px solid #e2ded4; color: #55606f">IN-TG</span>
+            <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #ffffff; border: 1px solid #e2ded4; color: #55606f">INR &#8377;</span>
+          </div>
+          <p style="font-size: 12.5px; color: #8a93a3; text-wrap: pretty">Stamp duty, transfer duty and registration fee on the higher of market value and consideration.</p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid #e2ded4; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 13px">
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <h3 style="font-size: 17px">England</h3>
+            <span style="font-size: 12px; color: #8a93a3">United Kingdom</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 7px; flex-wrap: wrap">
+            <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #f2f0ea; border: 1px solid #e2ded4; color: #55606f">GB-ENG</span>
+            <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #f2f0ea; border: 1px solid #e2ded4; color: #55606f">GBP &#163;</span>
+          </div>
+          <p style="font-size: 12.5px; color: #8a93a3; text-wrap: pretty">Progressive bands charged marginally, with first-time-buyer relief.</p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid #e2ded4; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 13px">
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <h3 style="font-size: 17px">Japan</h3>
+            <span style="font-size: 12px; color: #8a93a3">Nationwide</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 7px; flex-wrap: wrap">
+            <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #f2f0ea; border: 1px solid #e2ded4; color: #55606f">JP</span>
+            <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #f2f0ea; border: 1px solid #e2ded4; color: #55606f">JPY &#165;</span>
+          </div>
+          <p style="font-size: 12.5px; color: #8a93a3; text-wrap: pretty">Registration and licence tax. Amounts carry no decimal places.</p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid #e2ded4; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 13px">
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <h3 style="font-size: 17px">Dubai</h3>
+            <span style="font-size: 12px; color: #8a93a3">United Arab Emirates</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 7px; flex-wrap: wrap">
+            <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #f2f0ea; border: 1px solid #e2ded4; color: #55606f">AE-DU</span>
+            <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #f2f0ea; border: 1px solid #e2ded4; color: #55606f">AED</span>
+          </div>
+          <p style="font-size: 12.5px; color: #8a93a3; text-wrap: pretty">Flat transfer fee on the price paid, plus fixed administrative charges.</p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid #e2ded4; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 13px">
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <h3 style="font-size: 17px">California</h3>
+            <span style="font-size: 12px; color: #8a93a3">United States</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 7px; flex-wrap: wrap">
+            <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #f2f0ea; border: 1px solid #e2ded4; color: #55606f">US-CA</span>
+            <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #f2f0ea; border: 1px solid #e2ded4; color: #55606f">USD &#36;</span>
+          </div>
+          <p style="font-size: 12.5px; color: #8a93a3; text-wrap: pretty">County and city transfer taxes stacked over per-document recording fees.</p>
+        </div>
+
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 13px">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #8a93a3">Available soon</span>
+          <div style="flex-grow: 1; height: 1px; background: #e2ded4"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px">
+
+          <div style="background: #f7f5f0; border: 1px dashed #cbc5b6; border-radius: 10px; padding: 15px; display: flex; align-items: center; justify-content: space-between; gap: 10px">
+            <div style="display: flex; flex-direction: column; gap: 1px">
+              <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 15px; color: #55606f">Singapore</span>
+              <span class="mono" style="font-size: 11px; color: #8a93a3">SG &middot; SGD</span>
+            </div>
+            <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #8a93a3">Preview</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 6px; border-top: 1px solid #e2ded4">
+        <p style="font-size: 12.5px; color: #8a93a3">Selected: <span class="mono" style="color: #55606f">IN-TG</span> &middot; amounts will be shown in Indian rupees</p>
+        <button style="font: inherit; font-weight: 600; font-size: 13px; padding: 10px 20px; border-radius: 7px; border: 1px solid transparent; background: #b07000; color: #fff7e8; cursor: pointer; letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 8px">
+          Continue
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h13M12.5 5.5 19 12l-6.5 6.5"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

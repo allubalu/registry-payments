@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; color: #8a93a3; background: #0a0d12;
+      font: 14px/1.55 'Cascadia Code', 'Cascadia Mono', Consolas, 'JetBrains Mono', ui-monospace, monospace;
+      font-synthesis: none; text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: Cambria, Constantia, Georgia, 'Times New Roman', serif; color: #eef1f5; margin: 0; }
+    p { margin: 0; }
+    .lbl { font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #566073; }
+    .num { font-variant-numeric: tabular-nums; }
+    .idx { display: grid; grid-template-columns: 26px 1fr auto; align-items: baseline; gap: 12px;
+      padding: 7px 0; border-bottom: 1px dotted #232b38; }
+  </style>
+</helmet>
+
+<div style="width: 1180px; height: 860px; display: flex; flex-direction: column; background: radial-gradient(120% 80% at 12% -10%, #141a24 0%, #0a0d12 58%)">
+
+  <div style="padding: 44px 64px 0; display: flex; align-items: baseline; justify-content: space-between">
+    <div style="display: flex; align-items: center; gap: 11px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb020" stroke-width="1.6" stroke-linecap="round">
+        <path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"></path>
+      </svg>
+      <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 23px; font-style: italic; color: #eef1f5; letter-spacing: 0.02em">Registry</span>
+    </div>
+    <span class="lbl">Interface design &middot; v0.1 draft</span>
+  </div>
+
+  <div style="flex-grow: 1; padding: 0 64px; display: grid; grid-template-columns: minmax(0, 1fr) 392px; gap: 60px; align-items: center">
+
+    <div style="display: flex; flex-direction: column; gap: 26px">
+      <div style="display: flex; flex-direction: column; gap: 13px">
+        <span class="lbl" style="color: #ffb020">Property registration &middot; statutory fee collection</span>
+        <h1 style="font-size: 51px; line-height: 1.08; letter-spacing: -0.015em; max-width: 15ch">Paying the state, correctly.</h1>
+        <div style="width: 64px; height: 2px; background: #ffb020"></div>
+        <p style="font-size: 14px; line-height: 1.65; max-width: 47ch; text-wrap: pretty">A citizen files a property transfer, sees exactly how the duty was computed in their own jurisdiction and currency, and pays through the gateway that market actually uses. A clerk approves or rejects. Every movement of money is recorded once, and only once.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: #232b38; border: 1px solid #232b38; border-radius: 10px; overflow: hidden; max-width: 552px">
+        <div style="background: #10141b; padding: 15px 17px; display: flex; flex-direction: column; gap: 5px">
+          <span class="lbl">Truth</span>
+          <p style="font-size: 12.5px; color: #c6ccd6">The signed webhook, never the browser</p>
+        </div>
+        <div style="background: #10141b; padding: 15px 17px; display: flex; flex-direction: column; gap: 5px">
+          <span class="lbl">Money</span>
+          <p style="font-size: 12.5px; color: #c6ccd6">Integer minor units, one currency per filing</p>
+        </div>
+        <div style="background: #10141b; padding: 15px 17px; display: flex; flex-direction: column; gap: 5px">
+          <span class="lbl">Record</span>
+          <p style="font-size: 12.5px; color: #c6ccd6">Append-only ledger, nothing overwritten</p>
+        </div>
+        <div style="background: #10141b; padding: 15px 17px; display: flex; flex-direction: column; gap: 5px">
+          <span class="lbl">Jurisdiction</span>
+          <p style="font-size: 12.5px; color: #c6ccd6">Six rule packs as data, not branches</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 22px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span class="lbl">Citizen journey</span>
+        <div>
+          <div class="idx"><span class="num" style="color: #ffb020">01</span><span style="color: #c6ccd6">Choose jurisdiction</span><span class="lbl" style="letter-spacing: 0.08em">light</span></div>
+          <div class="idx"><span class="num" style="color: #ffb020">02</span><span style="color: #c6ccd6">Review fee &mdash; Telangana</span><span class="lbl" style="letter-spacing: 0.08em">&#8377; INR</span></div>
+          <div class="idx"><span class="num" style="color: #ffb020">03</span><span style="color: #c6ccd6">Confirming payment</span><span class="lbl" style="letter-spacing: 0.08em">webhook</span></div>
+          <div class="idx"><span class="num" style="color: #ffb020">04</span><span style="color: #c6ccd6">Payment declined</span><span class="lbl" style="letter-spacing: 0.08em">failure</span></div>
+          <div class="idx"><span class="num" style="color: #ffb020">05</span><span style="color: #c6ccd6">Receipt</span><span class="lbl" style="letter-spacing: 0.08em">A4 print</span></div>
+          <div class="idx"><span class="num" style="color: #ffb020">06</span><span style="color: #c6ccd6">England &mdash; banded duty</span><span class="lbl" style="letter-spacing: 0.08em">&pound; bands</span></div>
+          <div class="idx"><span class="num" style="color: #ffb020">07</span><span style="color: #c6ccd6">Dubai &mdash; flat percentage</span><span class="lbl" style="letter-spacing: 0.08em">AED flat</span></div>
+          <div class="idx"><span class="num" style="color: #ffb020">08</span><span style="color: #c6ccd6">California &mdash; stacked taxes</span><span class="lbl" style="letter-spacing: 0.08em">&#36; bounds</span></div>
+          <div class="idx"><span class="num" style="color: #ffb020">09</span><span style="color: #c6ccd6">Pay on a phone</span><span class="lbl" style="letter-spacing: 0.08em">390 px</span></div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span class="lbl">Operations console</span>
+        <div>
+          <div class="idx"><span class="num" style="color: #8ab4ff">10</span><span style="color: #c6ccd6">Clerk review queue</span><span class="lbl" style="letter-spacing: 0.08em">dark</span></div>
+          <div class="idx"><span class="num" style="color: #8ab4ff">11</span><span style="color: #c6ccd6">Payment timeline</span><span class="lbl" style="letter-spacing: 0.08em">audit</span></div>
+          <div class="idx"><span class="num" style="color: #8ab4ff">12</span><span style="color: #c6ccd6">Reconciliation</span><span class="lbl" style="letter-spacing: 0.08em">drift</span></div>
+          <div class="idx"><span class="num" style="color: #8ab4ff">13</span><span style="color: #c6ccd6">Jurisdiction registry</span><span class="lbl" style="letter-spacing: 0.08em">6 packs</span></div>
+          <div class="idx"><span class="num" style="color: #8ab4ff">&mdash;</span><span style="color: #c6ccd6">Foundations</span><span class="lbl" style="letter-spacing: 0.08em">tokens</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="padding: 0 64px 38px; display: flex; flex-direction: column; gap: 16px">
+    <div style="display: flex; align-items: flex-start; gap: 10px; padding: 11px 14px; border-radius: 8px; background: rgba(255, 176, 32, 0.08); border: 1px solid rgba(255, 176, 32, 0.26)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffb020" stroke-width="1.8" stroke-linecap="round" style="flex-shrink: 0; margin-top: 2px">
+        <path d="M12 9v4M12 17h.01M10.3 3.9 2.4 18a1.9 1.9 0 0 0 1.7 2.9h15.8a1.9 1.9 0 0 0 1.7-2.9L13.7 3.9a1.9 1.9 0 0 0-3.4 0z"></path>
+      </svg>
+      <p style="font-size: 12px; color: #d8b978; text-wrap: pretty"><strong style="color: #ffc457">Every figure on every screen is synthetic.</strong> No jurisdiction's real stamp duty, transfer tax or registry fee is reproduced here, and no screen is an official assessment.</p>
+    </div>
+    <div style="display: flex; align-items: baseline; justify-content: space-between; border-top: 1px solid #232b38; padding-top: 13px">
+      <span class="lbl">Proof of concept &middot; not a production system</span>
+      <span class="num lbl">2026 &mdash; 08 &mdash; 25</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

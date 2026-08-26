@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; color: #8a93a3; background: #0a0d12;
+      font: 15px/1.5 'Cascadia Code', 'Cascadia Mono', Consolas, 'JetBrains Mono', ui-monospace, monospace;
+      font-synthesis: none; text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: Cambria, Constantia, Georgia, 'Times New Roman', serif; color: #eef1f5; margin: 0; }
+    p { margin: 0; }
+    a { color: #ffb020; } a:hover { color: #ffc457; }
+    .lbl { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #566073; }
+    .num { font-variant-numeric: tabular-nums; }
+  </style>
+</helmet>
+
+<div style="width: 1180px; min-height: 860px; display: flex; flex-direction: column; background: #0a0d12">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; border-bottom: 1px solid #232b38; background: linear-gradient(to bottom, #10141b, #0a0d12)">
+    <div style="display: flex; align-items: baseline; gap: 10px">
+      <span style="color: #ffb020; font-size: 20px; align-self: center; display: inline-flex">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+          <path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"></path>
+        </svg>
+      </span>
+      <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 22px; font-style: italic; color: #eef1f5; letter-spacing: 0.02em">Registry</span>
+      <span class="lbl">Sub-registrar review</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 18px">
+      <span style="display: inline-flex; align-items: center; gap: 7px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #57e0a1">
+        <span style="width: 7px; height: 7px; border-radius: 50%; background: #57e0a1"></span>Live
+      </span>
+      <span class="num" style="font-size: 13px; color: #8a93a3">14:38:02</span>
+      <span style="font-size: 11px; color: #566073">ravi@clerk</span>
+    </div>
+  </div>
+
+  <div style="flex-grow: 1; display: grid; grid-template-columns: 340px 1fr; gap: 1px; background: #232b38; min-height: 0">
+
+    <div style="background: #0a0d12; padding: 20px; display: flex; flex-direction: column; gap: 16px">
+
+      <div style="background: #10141b; border: 1px solid #232b38; border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <span style="font-size: 15px; font-weight: 600; letter-spacing: 0.02em; color: #eef1f5">Awaiting review</span>
+          <span class="num" style="font-size: 12px; color: #566073; background: #161c25; border: 1px solid #232b38; border-radius: 999px; padding: 1px 9px">4</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 6px">
+
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px; border-radius: 8px; border: 1px solid #ffb020; background: rgba(255, 176, 32, 0.14); cursor: pointer">
+            <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+              <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 14px; color: #eef1f5">REG-2026-0041</span>
+              <span style="font-size: 11px; color: #566073">Priya Narayanan &middot; IN-TG</span>
+            </div>
+            <span class="num" style="font-size: 12px; color: #8a93a3; flex-shrink: 0">&#8377;3.00L</span>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px; border-radius: 8px; border: 1px solid #232b38; background: #0a0d12; cursor: pointer">
+            <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+              <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 14px; color: #eef1f5">REG-2026-0040</span>
+              <span style="font-size: 11px; color: #566073">James Whitfield &middot; GB-ENG</span>
+            </div>
+            <span class="num" style="font-size: 12px; color: #8a93a3; flex-shrink: 0">&#163;6,500</span>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px; border-radius: 8px; border: 1px solid #232b38; background: #0a0d12; cursor: pointer">
+            <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+              <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 14px; color: #eef1f5">REG-2026-0039</span>
+              <span style="font-size: 11px; color: #566073">Kenji Sato &middot; JP</span>
+            </div>
+            <span class="num" style="font-size: 12px; color: #8a93a3; flex-shrink: 0">&#165;1,250,000</span>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px; border-radius: 8px; border: 1px solid #232b38; background: #0a0d12; cursor: pointer">
+            <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+              <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 14px; color: #eef1f5">REG-2026-0037</span>
+              <span style="font-size: 11px; color: #566073">Anand Rao &middot; IN-TG</span>
+            </div>
+            <span class="num" style="font-size: 12px; color: #8a93a3; flex-shrink: 0">&#8377;1.12L</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div style="background: #10141b; border: 1px solid #232b38; border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 11px">
+        <span class="lbl">Today</span>
+        <div style="display: flex; align-items: baseline; justify-content: space-between">
+          <span style="font-size: 13px; color: #8a93a3">Approved</span>
+          <span class="num" style="font-size: 13px; color: #57e0a1">12</span>
+        </div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between">
+          <span style="font-size: 13px; color: #8a93a3">Rejected</span>
+          <span class="num" style="font-size: 13px; color: #ff5d5d">2</span>
+        </div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between">
+          <span style="font-size: 13px; color: #8a93a3">Refunds raised</span>
+          <span class="num" style="font-size: 13px; color: #b98cff">2</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="background: #0a0d12; padding: 24px 32px; display: flex; flex-direction: column; gap: 18px">
+
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 5px">
+          <h2 style="font-size: 22px; font-style: italic">REG-2026-0041</h2>
+          <span style="font-size: 12px; color: #566073">Filed 25 Aug 2026, 13:58 &middot; Telangana, India</span>
+        </div>
+        <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; background: rgba(87, 224, 161, 0.14); color: #57e0a1">
+          <span style="width: 5px; height: 5px; border-radius: 50%; background: currentColor"></span>Paid
+        </span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px">
+
+        <div style="background: #10141b; border: 1px solid #232b38; border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px">
+          <span class="lbl">Applicant</span>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px">
+              <span style="font-size: 12.5px; color: #566073">Name</span>
+              <span style="font-size: 12.5px; color: #eef1f5">Priya Narayanan</span>
+            </div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px">
+              <span style="font-size: 12.5px; color: #566073">Survey no.</span>
+              <span class="num" style="font-size: 12.5px; color: #eef1f5">142/A/2</span>
+            </div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px">
+              <span style="font-size: 12.5px; color: #566073">District</span>
+              <span style="font-size: 12.5px; color: #eef1f5">Rangareddy</span>
+            </div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px">
+              <span style="font-size: 12.5px; color: #566073">Type</span>
+              <span style="font-size: 12.5px; color: #eef1f5">Apartment &middot; Sale</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #10141b; border: 1px solid #232b38; border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; align-items: center; justify-content: space-between">
+            <span class="lbl">Payment proof</span>
+            <span style="display: inline-flex; align-items: center; gap: 5px; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: #57e0a1">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 12.5l5 5L20 6.5"></path>
+              </svg>Verified
+            </span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px">
+              <span style="font-size: 12.5px; color: #566073">Amount</span>
+              <span class="num" style="font-size: 12.5px; color: #eef1f5">&#8377; 3,00,200.00</span>
+            </div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px">
+              <span style="font-size: 12.5px; color: #566073">Gateway</span>
+              <span style="font-size: 12.5px; color: #eef1f5">Razorpay</span>
+            </div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px">
+              <span style="font-size: 12.5px; color: #566073">Payment id</span>
+              <span class="num" style="font-size: 11.5px; color: #4fd6e8">pay_TgQ4mK92xL01aB</span>
+            </div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px">
+              <span style="font-size: 12.5px; color: #566073">Confirmed</span>
+              <span class="num" style="font-size: 11.5px; color: #eef1f5">14:02:48 IST</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="background: #10141b; border: 1px solid #232b38; border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 13px">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <span class="lbl">Fee assessed</span>
+          <span style="font-size: 11px; color: #566073">IN-TG 2026.1 &middot; synthetic rates</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 7px">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px">
+            <span style="font-size: 12.5px; color: #8a93a3">Stamp duty &middot; 4.00%</span>
+            <span class="num" style="font-size: 12.5px; color: #eef1f5">&#8377; 2,00,000.00</span>
+          </div>
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px">
+            <span style="font-size: 12.5px; color: #8a93a3">Transfer duty &middot; 1.50%</span>
+            <span class="num" style="font-size: 12.5px; color: #eef1f5">&#8377; 75,000.00</span>
+          </div>
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px">
+            <span style="font-size: 12.5px; color: #8a93a3">Registration fee &middot; 0.50%</span>
+            <span class="num" style="font-size: 12.5px; color: #eef1f5">&#8377; 25,000.00</span>
+          </div>
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px">
+            <span style="font-size: 12.5px; color: #8a93a3">User charges &middot; flat</span>
+            <span class="num" style="font-size: 12.5px; color: #eef1f5">&#8377; 200.00</span>
+          </div>
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding-top: 9px; border-top: 1px solid #232b38">
+            <span style="font-size: 13px; color: #eef1f5">Total</span>
+            <span class="num" style="font-size: 15px; color: #ffb020">&#8377; 3,00,200.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: #10141b; border: 1px solid #232b38; border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px">
+        <span class="lbl">Decision</span>
+        <div style="border: 1px solid #33404f; border-radius: 7px; background: #0a0d12; padding: 9px 11px; min-height: 58px">
+          <span style="font-size: 13px; color: #566073">Reason &mdash; required when rejecting</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px">
+          <button style="font: inherit; font-weight: 600; font-size: 13px; padding: 9px 16px; border-radius: 7px; border: 1px solid transparent; background: #ffb020; color: #1a1200; cursor: pointer; letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 7px">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 12.5l5 5L20 6.5"></path>
+            </svg>Approve registration
+          </button>
+          <button style="font: inherit; font-weight: 600; font-size: 13px; padding: 9px 16px; border-radius: 7px; border: 1px solid rgba(255, 93, 93, 0.35); background: rgba(255, 93, 93, 0.14); color: #ff5d5d; cursor: pointer; letter-spacing: 0.02em">Reject</button>
+          <div style="flex-grow: 1"></div>
+          <span style="font-size: 11px; color: #566073">Recorded against ravi@clerk</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; color: #8a93a3; background: #0a0d12;
+      font: 15px/1.5 'Cascadia Code', 'Cascadia Mono', Consolas, 'JetBrains Mono', ui-monospace, monospace;
+      font-synthesis: none; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: Cambria, Constantia, Georgia, 'Times New Roman', serif; color: #eef1f5; margin: 0; }
+    p { margin: 0; }
+    a { color: #ffb020; } a:hover { color: #ffc457; }
+    .lbl { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #566073; }
+    .num { font-variant-numeric: tabular-nums; }
+    .tag { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+  </style>
+</helmet>
+
+<div style="width: 1180px; min-height: 820px; display: flex; flex-direction: column; background: #0a0d12">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; border-bottom: 1px solid #232b38; background: linear-gradient(to bottom, #10141b, #0a0d12)">
+    <div style="display: flex; align-items: baseline; gap: 10px">
+      <span style="color: #ffb020; align-self: center; display: inline-flex">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+          <path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"></path>
+        </svg>
+      </span>
+      <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 22px; font-style: italic; color: #eef1f5; letter-spacing: 0.02em">Registry</span>
+      <span class="lbl">Jurisdictions</span>
+    </div>
+    <span style="font-size: 11px; color: #566073">anita@admin</span>
+  </div>
+
+  <div style="flex-grow: 1; padding: 24px 32px 34px; display: flex; flex-direction: column; gap: 20px">
+
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h2 style="font-size: 22px; font-style: italic">Loaded rule packs</h2>
+        <p style="font-size: 12.5px; color: #566073">Each jurisdiction is a versioned configuration file. Adding one needs no code change.</p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 20px">
+        <div style="display: flex; flex-direction: column; gap: 2px; align-items: flex-end">
+          <span class="lbl">Packs</span>
+          <span class="num" style="font-size: 17px; color: #eef1f5">6</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px; align-items: flex-end">
+          <span class="lbl">Currencies</span>
+          <span class="num" style="font-size: 17px; color: #eef1f5">6</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px; align-items: flex-end">
+          <span class="lbl">Live</span>
+          <span class="num" style="font-size: 17px; color: #57e0a1">5</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px; align-items: flex-end">
+          <span class="lbl">Gateways</span>
+          <span class="num" style="font-size: 17px; color: #eef1f5">2</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="background: #10141b; border: 1px solid #232b38; border-radius: 10px; display: flex; flex-direction: column; overflow: hidden">
+
+      <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr) 108px 96px 205px 118px 110px; gap: 14px; padding: 9px 18px; background: #161c25; border-bottom: 1px solid #232b38">
+        <span class="lbl">Id</span>
+        <span class="lbl">Jurisdiction</span>
+        <span class="lbl">Currency</span>
+        <span class="lbl">Version</span>
+        <span class="lbl">Fee model</span>
+        <span class="lbl">Gateway</span>
+        <span class="lbl" style="text-align: right">Status</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr) 108px 96px 205px 118px 110px; gap: 14px; padding: 13px 18px; border-bottom: 1px solid #161c25; align-items: center">
+        <span class="num" style="font-size: 12.5px; color: #ffb020">IN-TG</span>
+        <span style="font-size: 12.5px; color: #eef1f5">Telangana, India</span>
+        <span class="num" style="font-size: 12.5px; color: #8a93a3">INR &#8377; &middot; 2</span>
+        <span class="num" style="font-size: 12px; color: #8a93a3">2026.1</span>
+        <span style="font-size: 11.5px; color: #8a93a3">Proportional on higher value</span>
+        <span style="font-size: 12px; color: #4fd6e8">Razorpay</span>
+        <span class="tag" style="background: rgba(87, 224, 161, 0.14); color: #57e0a1; justify-self: end">Live</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr) 108px 96px 205px 118px 110px; gap: 14px; padding: 13px 18px; border-bottom: 1px solid #161c25; align-items: center">
+        <span class="num" style="font-size: 12.5px; color: #ffb020">GB-ENG</span>
+        <span style="font-size: 12.5px; color: #eef1f5">England, United Kingdom</span>
+        <span class="num" style="font-size: 12.5px; color: #8a93a3">GBP &#163; &middot; 2</span>
+        <span class="num" style="font-size: 12px; color: #8a93a3">2026.1</span>
+        <span style="font-size: 11.5px; color: #8a93a3">Progressive bands + relief</span>
+        <span style="font-size: 12px; color: #4fd6e8">Stripe</span>
+        <span class="tag" style="background: rgba(87, 224, 161, 0.14); color: #57e0a1; justify-self: end">Live</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr) 108px 96px 205px 118px 110px; gap: 14px; padding: 13px 18px; border-bottom: 1px solid #161c25; align-items: center">
+        <span class="num" style="font-size: 12.5px; color: #ffb020">JP</span>
+        <span style="font-size: 12.5px; color: #eef1f5">Japan</span>
+        <span class="num" style="font-size: 12.5px; color: #b98cff">JPY &#165; &middot; 0</span>
+        <span class="num" style="font-size: 12px; color: #8a93a3">2026.1</span>
+        <span style="font-size: 11.5px; color: #8a93a3">Flat + proportional</span>
+        <span style="font-size: 12px; color: #4fd6e8">Stripe</span>
+        <span class="tag" style="background: rgba(87, 224, 161, 0.14); color: #57e0a1; justify-self: end">Live</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr) 108px 96px 205px 118px 110px; gap: 14px; padding: 13px 18px; border-bottom: 1px solid #161c25; align-items: center">
+        <span class="num" style="font-size: 12.5px; color: #ffb020">AE-DU</span>
+        <span style="font-size: 12.5px; color: #eef1f5">Dubai, United Arab Emirates</span>
+        <span class="num" style="font-size: 12.5px; color: #8a93a3">AED &middot; 2</span>
+        <span class="num" style="font-size: 12px; color: #8a93a3">2026.1</span>
+        <span style="font-size: 11.5px; color: #8a93a3">Flat percentage, price paid</span>
+        <span style="font-size: 12px; color: #4fd6e8">Stripe</span>
+        <span class="tag" style="background: rgba(87, 224, 161, 0.14); color: #57e0a1; justify-self: end">Live</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr) 108px 96px 205px 118px 110px; gap: 14px; padding: 13px 18px; border-bottom: 1px solid #161c25; align-items: center">
+        <span class="num" style="font-size: 12.5px; color: #ffb020">US-CA</span>
+        <span style="font-size: 12.5px; color: #eef1f5">California, United States</span>
+        <span class="num" style="font-size: 12.5px; color: #8a93a3">USD &#36; &middot; 2</span>
+        <span class="num" style="font-size: 12px; color: #8a93a3">2026.1</span>
+        <span style="font-size: 11.5px; color: #8a93a3">County flat + transfer tax</span>
+        <span style="font-size: 12px; color: #4fd6e8">Stripe</span>
+        <span class="tag" style="background: rgba(87, 224, 161, 0.14); color: #57e0a1; justify-self: end">Live</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr) 108px 96px 205px 118px 110px; gap: 14px; padding: 13px 18px; align-items: center">
+        <span class="num" style="font-size: 12.5px; color: #566073">SG</span>
+        <span style="font-size: 12.5px; color: #8a93a3">Singapore</span>
+        <span class="num" style="font-size: 12.5px; color: #566073">SGD &middot; 2</span>
+        <span class="num" style="font-size: 12px; color: #566073">2026.1</span>
+        <span style="font-size: 11.5px; color: #566073">Two stacked band schedules</span>
+        <span style="font-size: 12px; color: #566073">Stripe</span>
+        <span class="tag" style="background: #161c25; color: #566073; justify-self: end">Loaded</span>
+      </div>
+
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px">
+
+      <div style="background: #10141b; border: 1px solid rgba(255, 176, 32, 0.35); border-radius: 10px; padding: 15px 17px; display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; align-items: center; gap: 8px">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffb020" stroke-width="1.9" stroke-linecap="round" style="flex-shrink: 0">
+            <path d="M12 9v4M12 17h.01M10.3 3.9 2.4 18a1.9 1.9 0 0 0 1.7 2.9h15.8a1.9 1.9 0 0 0 1.7-2.9L13.7 3.9a1.9 1.9 0 0 0-3.4 0z"></path>
+          </svg>
+          <span style="font-size: 12.5px; color: #eef1f5; font-weight: 600">All rates are synthetic</span>
+        </div>
+        <p style="font-size: 11.5px; color: #8a93a3; text-wrap: pretty">Every pack is marked <span style="color: #ffb020">synthetic</span>, so citizens see a banner and receipts carry a disclaimer. A pack with unmarked rates will not load.</p>
+      </div>
+
+      <div style="background: #10141b; border: 1px solid #232b38; border-radius: 10px; padding: 15px 17px; display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; align-items: center; gap: 8px">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4fd6e8" stroke-width="1.9" stroke-linecap="round" style="flex-shrink: 0">
+            <path d="M4 7h16M4 12h16M4 17h9"></path>
+          </svg>
+          <span style="font-size: 12.5px; color: #eef1f5; font-weight: 600">Live vs loaded</span>
+        </div>
+        <p style="font-size: 11.5px; color: #8a93a3; text-wrap: pretty">Five <span style="color: #57e0a1">live</span> packs are payable end to end &mdash; India, England, Japan, Dubai and California. Singapore is <span style="color: #8a93a3">loaded</span>: validated and computed, not yet offered. Promotion was one config line.</p>
+      </div>
+
+      <div style="background: #10141b; border: 1px solid #232b38; border-radius: 10px; padding: 15px 17px; display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; align-items: center; gap: 8px">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#57e0a1" stroke-width="1.9" stroke-linecap="round" style="flex-shrink: 0">
+            <path d="M12 2.7 4 6v6c0 4.4 3.4 8 8 9.3 4.6-1.3 8-4.9 8-9.3V6l-8-3.3z"></path><path d="M9.2 12.2l2 2 3.6-4"></path>
+          </svg>
+          <span style="font-size: 12.5px; color: #eef1f5; font-weight: 600">Checked at startup</span>
+        </div>
+        <p style="font-size: 11.5px; color: #8a93a3; text-wrap: pretty">Every pack's currency must be chargeable by its routed gateway. A mismatch stops the service starting rather than failing at checkout.</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

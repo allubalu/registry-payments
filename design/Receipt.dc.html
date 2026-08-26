@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; background: #ffffff; color: #3d4654;
+      font: 13px/1.5 -apple-system, 'Segoe UI', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: Cambria, Constantia, Georgia, serif; color: #14181f; margin: 0; }
+    p { margin: 0; }
+    a { color: #b07000; } a:hover { color: #8a5600; }
+    .mono { font-family: 'Cascadia Code', 'Cascadia Mono', Consolas, ui-monospace, monospace;
+      font-variant-numeric: tabular-nums; }
+    .lbl { font-size: 9.5px; letter-spacing: 0.13em; text-transform: uppercase; color: #8a93a3; }
+  </style>
+</helmet>
+
+<div style="width: 794px; height: 1123px; padding: 58px 62px; background: #ffffff; display: flex; flex-direction: column; gap: 30px; box-sizing: border-box">
+
+  <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 22px; padding-bottom: 22px; border-bottom: 2px solid #14181f">
+    <div style="display: flex; flex-direction: column; gap: 7px">
+      <div style="display: flex; align-items: center; gap: 9px">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#b07000" stroke-width="1.7" stroke-linecap="round">
+          <path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"></path>
+        </svg>
+        <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 23px; font-style: italic; color: #14181f; letter-spacing: 0.02em">Registry</span>
+      </div>
+      <span class="lbl">Property transfer fee &mdash; payment receipt</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 4px; text-align: right">
+      <span class="lbl">Reference</span>
+      <span class="mono" style="font-size: 16px; color: #14181f">REG-2026-0041</span>
+    </div>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 10px; padding: 11px 14px; background: rgba(176, 112, 0, 0.09); border: 1px solid rgba(176, 112, 0, 0.3); border-radius: 6px">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8a5600" stroke-width="1.8" stroke-linecap="round" style="flex-shrink: 0">
+      <path d="M12 9v4M12 17h.01M10.3 3.9 2.4 18a1.9 1.9 0 0 0 1.7 2.9h15.8a1.9 1.9 0 0 0 1.7-2.9L13.7 3.9a1.9 1.9 0 0 0-3.4 0z"></path>
+    </svg>
+    <p style="font-size: 11.5px; color: #6d4400"><strong>Demonstration document.</strong> Fee rates used are synthetic and this receipt has no legal or official standing.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px">
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <span class="lbl">Paid by</span>
+      <div style="display: flex; flex-direction: column; gap: 3px">
+        <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 16px; color: #14181f">Priya Narayanan</span>
+        <span class="mono" style="font-size: 11.5px; color: #8a93a3">priya.n@example.in</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <span class="lbl">Jurisdiction</span>
+      <div style="display: flex; flex-direction: column; gap: 3px">
+        <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 16px; color: #14181f">Telangana, India</span>
+        <span class="mono" style="font-size: 11.5px; color: #8a93a3">IN-TG &middot; rule set 2026.1 &middot; synthetic</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 12px">
+    <span class="lbl">Property</span>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px 26px; padding: 15px 17px; background: #faf8f3; border: 1px solid #e2ded4; border-radius: 7px">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+        <span style="font-size: 12px; color: #8a93a3">Survey number</span>
+        <span class="mono" style="font-size: 12px; color: #14181f">142/A/2</span>
+      </div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+        <span style="font-size: 12px; color: #8a93a3">District</span>
+        <span style="font-size: 12px; color: #14181f">Rangareddy</span>
+      </div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+        <span style="font-size: 12px; color: #8a93a3">Property type</span>
+        <span style="font-size: 12px; color: #14181f">Apartment</span>
+      </div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+        <span style="font-size: 12px; color: #8a93a3">Transaction type</span>
+        <span style="font-size: 12px; color: #14181f">Sale</span>
+      </div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+        <span style="font-size: 12px; color: #8a93a3">Market value</span>
+        <span class="mono" style="font-size: 12px; color: #14181f">&#8377; 50,00,000.00</span>
+      </div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+        <span style="font-size: 12px; color: #8a93a3">Consideration</span>
+        <span class="mono" style="font-size: 12px; color: #14181f">&#8377; 48,00,000.00</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 12px">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+      <span class="lbl">Fee assessed</span>
+      <span class="mono" style="font-size: 11px; color: #8a93a3">Chargeable value &#8377;&nbsp;50,00,000.00 &mdash; higher of market value and consideration</span>
+    </div>
+
+    <div style="border: 1px solid #e2ded4; border-radius: 7px; overflow: hidden">
+
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 130px 150px; gap: 14px; padding: 9px 17px; background: #f2f0ea; border-bottom: 1px solid #e2ded4">
+        <span class="lbl">Component</span>
+        <span class="lbl" style="text-align: right">Rate</span>
+        <span class="lbl" style="text-align: right">Amount</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 130px 150px; gap: 14px; padding: 12px 17px; border-bottom: 1px solid #f2f0ea">
+        <span style="font-size: 12.5px; color: #14181f">Stamp duty</span>
+        <span class="mono" style="font-size: 12.5px; color: #3d4654; text-align: right">4.00%</span>
+        <span class="mono" style="font-size: 12.5px; color: #14181f; text-align: right">&#8377; 2,00,000.00</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 130px 150px; gap: 14px; padding: 12px 17px; border-bottom: 1px solid #f2f0ea">
+        <span style="font-size: 12.5px; color: #14181f">Transfer duty</span>
+        <span class="mono" style="font-size: 12.5px; color: #3d4654; text-align: right">1.50%</span>
+        <span class="mono" style="font-size: 12.5px; color: #14181f; text-align: right">&#8377; 75,000.00</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 130px 150px; gap: 14px; padding: 12px 17px; border-bottom: 1px solid #f2f0ea">
+        <span style="font-size: 12.5px; color: #14181f">Registration fee</span>
+        <span class="mono" style="font-size: 12.5px; color: #3d4654; text-align: right">0.50%</span>
+        <span class="mono" style="font-size: 12.5px; color: #14181f; text-align: right">&#8377; 25,000.00</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 130px 150px; gap: 14px; padding: 12px 17px; border-bottom: 1px solid #e2ded4">
+        <span style="font-size: 12.5px; color: #14181f">User charges</span>
+        <span class="mono" style="font-size: 12.5px; color: #3d4654; text-align: right">Flat</span>
+        <span class="mono" style="font-size: 12.5px; color: #14181f; text-align: right">&#8377; 200.00</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 130px 150px; gap: 14px; padding: 14px 17px; background: #faf8f3">
+        <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 15px; color: #14181f">Total paid</span>
+        <span></span>
+        <span class="mono" style="font-size: 17px; color: #14181f; text-align: right">&#8377; 3,00,200.00</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 12px">
+    <span class="lbl">Payment</span>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px 26px">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid #f2f0ea">
+        <span style="font-size: 12px; color: #8a93a3">Method</span>
+        <span style="font-size: 12px; color: #14181f">UPI</span>
+      </div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid #f2f0ea">
+        <span style="font-size: 12px; color: #8a93a3">Gateway</span>
+        <span style="font-size: 12px; color: #14181f">Razorpay</span>
+      </div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid #f2f0ea">
+        <span style="font-size: 12px; color: #8a93a3">Gateway payment id</span>
+        <span class="mono" style="font-size: 11.5px; color: #14181f">pay_TgQ4mK92xL01aB</span>
+      </div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid #f2f0ea">
+        <span style="font-size: 12px; color: #8a93a3">Confirmed at</span>
+        <span class="mono" style="font-size: 11.5px; color: #14181f">2026-08-25 14:02:48 IST</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex-grow: 1"></div>
+
+  <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 22px; padding-top: 18px; border-top: 1px solid #e2ded4">
+    <p style="font-size: 10.5px; color: #8a93a3; max-width: 430px; text-wrap: pretty">This receipt was generated from stored records on 25 August 2026 and can be reproduced at any time from reference REG-2026-0041. Fee rule set IN-TG 2026.1, provenance synthetic.</p>
+    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 5px">
+      <span class="lbl">Status</span>
+      <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 11px; border-radius: 999px; background: rgba(16, 121, 79, 0.12); color: #0c5f3e">
+        <span style="width: 5px; height: 5px; border-radius: 50%; background: currentColor"></span>Paid
+      </span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

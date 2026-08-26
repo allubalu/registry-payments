@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; background: #fbfaf7; color: #55606f;
+      font: 14px/1.55 -apple-system, 'Segoe UI', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: Cambria, Constantia, Georgia, serif; color: #14181f; margin: 0; }
+    p { margin: 0; }
+    a { color: #b07000; } a:hover { color: #8a5600; }
+    .mono { font-family: 'Cascadia Code', 'Cascadia Mono', Consolas, ui-monospace, monospace;
+      font-variant-numeric: tabular-nums; }
+    .lbl { font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #8a93a3; }
+    .fld { background: #ffffff; border: 1px solid #e2ded4; border-radius: 7px; padding: 9px 11px;
+      font-size: 13.5px; color: #14181f; }
+  </style>
+</helmet>
+
+<div style="width: 1180px; min-height: 940px; display: flex; flex-direction: column; background: #fbfaf7">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px 32px; border-bottom: 1px solid #e2ded4; background: #ffffff">
+    <div style="display: flex; align-items: baseline; gap: 10px">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#b07000" stroke-width="1.7" stroke-linecap="round" style="align-self: center">
+        <path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"></path>
+      </svg>
+      <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 21px; font-style: italic; color: #14181f; letter-spacing: 0.02em">Registry</span>
+      <span class="lbl">England, United Kingdom</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px">
+      <span class="mono" style="font-size: 12px; color: #8a93a3">j.whitfield@example.co.uk</span>
+      <span style="font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; background: #f2f0ea; color: #55606f">Citizen</span>
+    </div>
+  </div>
+
+  <div style="display: flex; align-items: flex-start; gap: 10px; padding: 10px 32px; background: rgba(176, 112, 0, 0.09); border-bottom: 1px solid rgba(176, 112, 0, 0.22)">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#b07000" stroke-width="1.8" stroke-linecap="round" style="flex-shrink: 0; margin-top: 1px">
+      <path d="M12 9v4M12 17h.01M10.3 3.9 2.4 18a1.9 1.9 0 0 0 1.7 2.9h15.8a1.9 1.9 0 0 0 1.7-2.9L13.7 3.9a1.9 1.9 0 0 0-3.4 0z"></path>
+    </svg>
+    <p style="font-size: 12.5px; color: #8a5600"><strong style="color: #6d4400">Illustrative rates for demonstration only.</strong> Not an official assessment of duty payable.</p>
+  </div>
+
+  <div style="flex-grow: 1; padding: 34px 32px 44px; display: flex; justify-content: center">
+    <div style="width: 100%; max-width: 1040px; display: grid; grid-template-columns: minmax(0, 1fr) 430px; gap: 28px; align-items: start">
+
+      <div style="display: flex; flex-direction: column; gap: 22px">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <h1 style="font-size: 29px; letter-spacing: -0.01em">Review your duty</h1>
+          <p style="font-size: 14.5px; max-width: 480px; text-wrap: pretty">England charges duty in bands. Each band is charged only on the part of the price that falls inside it.</p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid #e2ded4; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 17px">
+          <div style="display: flex; align-items: center; justify-content: space-between">
+            <h3 style="font-size: 15.5px">Purchase</h3>
+            <button style="font: inherit; font-size: 12.5px; font-weight: 600; padding: 5px 11px; border-radius: 6px; border: 1px solid #cbc5b6; background: transparent; color: #55606f; cursor: pointer">Edit</button>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px">
+            <div style="display: flex; flex-direction: column; gap: 5px">
+              <span class="lbl">Property type</span>
+              <div class="fld">Freehold house</div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 5px">
+              <span class="lbl">Transaction type</span>
+              <div class="fld">Sale</div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 5px">
+              <span class="lbl">Price paid</span>
+              <div class="fld mono">&#163; 395,000.00</div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 5px">
+              <span class="lbl">Local authority</span>
+              <div class="fld">Bristol</div>
+            </div>
+          </div>
+
+          <div style="padding-top: 16px; border-top: 1px solid #f2f0ea; display: flex; flex-direction: column; gap: 9px">
+            <div style="display: flex; align-items: center; gap: 8px">
+              <span class="lbl">Asked only in England</span>
+              <span class="mono" style="font-size: 10px; padding: 1px 7px; border-radius: 999px; background: rgba(13, 124, 140, 0.1); color: #0a5f6b; border: 1px solid rgba(13, 124, 140, 0.25)">GB-ENG</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <span style="font-size: 13.5px; color: #14181f">Is this your first property purchase?</span>
+              <div style="display: flex; gap: 8px">
+                <span style="font-size: 13px; padding: 7px 15px; border-radius: 7px; border: 1px solid #e2ded4; background: #ffffff; color: #8a93a3">Yes</span>
+                <span style="font-size: 13px; font-weight: 600; padding: 7px 15px; border-radius: 7px; border: 1px solid #14181f; background: #14181f; color: #fbfaf7">No</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: rgba(13, 124, 140, 0.06); border: 1px solid rgba(13, 124, 140, 0.28); border-radius: 10px; padding: 15px 17px; display: flex; align-items: flex-start; gap: 11px">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0d7c8c" stroke-width="1.8" stroke-linecap="round" style="flex-shrink: 0; margin-top: 1px">
+            <circle cx="12" cy="12" r="9.5"></circle><path d="M12 11v6M12 7.5h.01"></path>
+          </svg>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <p style="font-size: 13px; color: #0a5f6b; font-weight: 600">Duty is charged on the &#163;&nbsp;395,000.00 you paid</p>
+            <p style="font-size: 12.5px; color: #55606f; text-wrap: pretty">England charges on the <strong>price paid</strong>, so no separate market valuation is needed.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: #ffffff; border: 1px solid #e2ded4; border-radius: 10px; box-shadow: 0 1px 3px rgba(20, 24, 31, 0.05); display: flex; flex-direction: column; overflow: hidden">
+        <div style="padding: 17px 20px; border-bottom: 1px solid #e2ded4; display: flex; align-items: center; justify-content: space-between">
+          <h3 style="font-size: 15.5px">Duty breakdown</h3>
+          <span class="mono" style="font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: #f2f0ea; color: #8a93a3; border: 1px solid #e2ded4">GB-ENG 2026.1</span>
+        </div>
+
+        <div style="padding: 15px 20px 4px; display: flex; flex-direction: column; gap: 9px">
+          <span class="lbl">Banded duty</span>
+
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid #f2f0ea">
+            <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+              <span class="mono" style="font-size: 12.5px; color: #8a93a3">&#163;0 &ndash; &#163;150,000</span>
+              <span style="font-size: 11px; color: #8a93a3">on &#163;150,000 at 0%</span>
+            </div>
+            <span class="mono" style="font-size: 13.5px; color: #8a93a3; white-space: nowrap">&#163; 0.00</span>
+          </div>
+
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid #f2f0ea">
+            <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+              <span class="mono" style="font-size: 12.5px; color: #14181f">&#163;150,001 &ndash; &#163;300,000</span>
+              <span style="font-size: 11px; color: #8a93a3">on &#163;150,000 at 2%</span>
+            </div>
+            <span class="mono" style="font-size: 13.5px; color: #14181f; white-space: nowrap">&#163; 3,000.00</span>
+          </div>
+
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid #f2f0ea">
+            <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+              <span class="mono" style="font-size: 12.5px; color: #14181f">&#163;300,001 &ndash; &#163;395,000</span>
+              <span style="font-size: 11px; color: #8a93a3">on &#163;95,000 at 3%</span>
+            </div>
+            <span class="mono" style="font-size: 13.5px; color: #14181f; white-space: nowrap">&#163; 2,850.00</span>
+          </div>
+
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 9px 0 4px">
+            <span style="font-size: 12.5px; color: #55606f; font-weight: 600">Duty subtotal</span>
+            <span class="mono" style="font-size: 13.5px; color: #14181f; white-space: nowrap">&#163; 5,850.00</span>
+          </div>
+        </div>
+
+        <div style="padding: 12px 20px 14px; display: flex; flex-direction: column; gap: 9px; border-top: 1px solid #e2ded4; margin-top: 8px">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 4px 0">
+            <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+              <span style="font-size: 13px; color: #14181f">Land registry fee</span>
+              <span class="mono" style="font-size: 11px; color: #8a93a3">Flat, price band &#163;200k&ndash;&#163;500k</span>
+            </div>
+            <span class="mono" style="font-size: 13.5px; color: #14181f; white-space: nowrap">&#163; 650.00</span>
+          </div>
+
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 4px 0">
+            <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+              <span style="font-size: 13px; color: #8a93a3">First-time buyer relief</span>
+              <span style="font-size: 11px; color: #8a93a3">Not applied &mdash; answered No</span>
+            </div>
+            <span class="mono" style="font-size: 13.5px; color: #8a93a3; white-space: nowrap">&#8212;</span>
+          </div>
+        </div>
+
+        <div style="padding: 16px 20px; background: #faf8f3; border-top: 1px solid #e2ded4; display: flex; align-items: baseline; justify-content: space-between; gap: 14px">
+          <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 16px; color: #14181f">Total payable</span>
+          <span class="mono" style="font-size: 22px; color: #14181f; letter-spacing: -0.01em; white-space: nowrap">&#163; 6,500.00</span>
+        </div>
+
+        <div style="padding: 17px 20px 20px; display: flex; flex-direction: column; gap: 11px; border-top: 1px solid #e2ded4">
+          <button style="font: inherit; font-weight: 600; font-size: 14px; padding: 12px 20px; border-radius: 7px; border: 1px solid transparent; background: #b07000; color: #fff7e8; cursor: pointer; letter-spacing: 0.02em; display: inline-flex; align-items: center; justify-content: center; gap: 8px">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
+              <rect x="2.5" y="5.5" width="19" height="13" rx="2.2"></rect><path d="M2.5 10h19"></path>
+            </svg>
+            Pay &#163; 6,500.00
+          </button>
+          <p style="font-size: 11.5px; color: #8a93a3; text-align: center">Card payment through Stripe hosted checkout.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

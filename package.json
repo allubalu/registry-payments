@@ -1,0 +1,19 @@
+{
+  "name": "registry-payments",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "build": "tsc -b packages/domain",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "oxlint packages tools",
+    "quote": "node --experimental-strip-types tools/quote.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.2",
+    "oxlint": "^1.71.0",
+    "typescript": "~6.0.2"
+  }
+}

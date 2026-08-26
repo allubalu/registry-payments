@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; color: #8a93a3; background: #0a0d12;
+      font: 13.5px/1.55 'Cascadia Code', 'Cascadia Mono', Consolas, 'JetBrains Mono', ui-monospace, monospace;
+      font-synthesis: none; text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: Cambria, Constantia, Georgia, 'Times New Roman', serif; color: #eef1f5; margin: 0; }
+    p { margin: 0; }
+    .lbl { font-size: 10.5px; letter-spacing: 0.15em; text-transform: uppercase; color: #566073; }
+    .num { font-variant-numeric: tabular-nums; }
+    .card { background: #10141b; border: 1px solid #232b38; border-radius: 10px; }
+    .sw { height: 46px; border-radius: 7px; border: 1px solid rgba(255,255,255,0.07); }
+    .row { display: grid; align-items: baseline; gap: 14px; padding: 9px 0; border-bottom: 1px solid #1a212b; }
+    .btn { font: inherit; font-size: 13px; padding: 8px 15px; border-radius: 7px; cursor: pointer; }
+  </style>
+</helmet>
+
+<div style="width: 1180px; min-height: 1040px; display: flex; flex-direction: column; background: #0a0d12">
+
+  <div style="padding: 30px 40px 24px; border-bottom: 1px solid #232b38; display: flex; align-items: flex-end; justify-content: space-between; gap: 30px">
+    <div style="display: flex; flex-direction: column; gap: 9px">
+      <span class="lbl" style="color: #ffb020">Foundations</span>
+      <h1 style="font-size: 31px; letter-spacing: -0.01em">One vocabulary, two grounds</h1>
+      <p style="font-size: 13px; max-width: 72ch; text-wrap: pretty">Citizens meet this product once, on a light ground that prints. Operators live in it all day, on the dark ground the existing console already uses. Same type pairing, same accents, same spacing scale, same numerals &mdash; only the ground and the density change.</p>
+    </div>
+    <span class="num lbl" style="white-space: nowrap">12 / 12</span>
+  </div>
+
+  <div style="padding: 26px 40px 40px; display: flex; flex-direction: column; gap: 26px">
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px">
+
+      <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 15px">
+        <div style="display: flex; align-items: baseline; justify-content: space-between">
+          <h3 style="font-size: 15px">Operations ground</h3>
+          <span class="lbl">dark &middot; lifted from the console</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px">
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #0a0d12"></div><span class="num" style="font-size: 10.5px; color: #566073">#0a0d12</span></div>
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #10141b"></div><span class="num" style="font-size: 10.5px; color: #566073">#10141b</span></div>
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #232b38"></div><span class="num" style="font-size: 10.5px; color: #566073">#232b38</span></div>
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #eef1f5"></div><span class="num" style="font-size: 10.5px; color: #566073">#eef1f5</span></div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 9px">
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #ffb020; height: 34px"></div><span class="lbl" style="letter-spacing: 0.06em">primary</span></div>
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #57e0a1; height: 34px"></div><span class="lbl" style="letter-spacing: 0.06em">settled</span></div>
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #4fd0e0; height: 34px"></div><span class="lbl" style="letter-spacing: 0.06em">info</span></div>
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #b28cff; height: 34px"></div><span class="lbl" style="letter-spacing: 0.06em">exponent</span></div>
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #ff6b6b; height: 34px"></div><span class="lbl" style="letter-spacing: 0.06em">needs eyes</span></div>
+        </div>
+      </div>
+
+      <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 15px; background: #fbfaf7; border-color: #e2ded4">
+        <div style="display: flex; align-items: baseline; justify-content: space-between">
+          <h3 style="font-size: 15px; color: #14181f">Citizen ground</h3>
+          <span class="lbl" style="color: #8a93a3">light &middot; same hues, darkened for contrast</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px">
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #fbfaf7; border-color: #e2ded4"></div><span class="num" style="font-size: 10.5px; color: #8a93a3">#fbfaf7</span></div>
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #ffffff; border-color: #e2ded4"></div><span class="num" style="font-size: 10.5px; color: #8a93a3">#ffffff</span></div>
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #e2ded4; border-color: #cbc5b6"></div><span class="num" style="font-size: 10.5px; color: #8a93a3">#e2ded4</span></div>
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #14181f"></div><span class="num" style="font-size: 10.5px; color: #8a93a3">#14181f</span></div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 9px">
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #b07000; height: 34px"></div><span class="lbl" style="letter-spacing: 0.06em; color: #8a93a3">primary</span></div>
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #10794f; height: 34px"></div><span class="lbl" style="letter-spacing: 0.06em; color: #8a93a3">settled</span></div>
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #0d7c8c; height: 34px"></div><span class="lbl" style="letter-spacing: 0.06em; color: #8a93a3">info</span></div>
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #6d4400; height: 34px"></div><span class="lbl" style="letter-spacing: 0.06em; color: #8a93a3">notice</span></div>
+          <div style="display: flex; flex-direction: column; gap: 5px"><div class="sw" style="background: #b3261e; height: 34px"></div><span class="lbl" style="letter-spacing: 0.06em; color: #8a93a3">declined</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 22px">
+
+      <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; align-items: baseline; justify-content: space-between">
+          <h3 style="font-size: 15px">Type</h3>
+          <span class="lbl">serif headings &middot; mono data</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 11px">
+          <div style="display: flex; align-items: baseline; gap: 14px">
+            <span class="lbl" style="width: 92px; flex-shrink: 0">display 51</span>
+            <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 30px; color: #eef1f5; letter-spacing: -0.015em; line-height: 1">Paying the state</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 14px; border-top: 1px solid #1a212b; padding-top: 11px">
+            <span class="lbl" style="width: 92px; flex-shrink: 0">title 29</span>
+            <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 22px; color: #eef1f5; line-height: 1">Review your fee</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 14px; border-top: 1px solid #1a212b; padding-top: 11px">
+            <span class="lbl" style="width: 92px; flex-shrink: 0">wordmark</span>
+            <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 21px; font-style: italic; color: #eef1f5; letter-spacing: 0.02em; line-height: 1">Registry</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 14px; border-top: 1px solid #1a212b; padding-top: 11px">
+            <span class="lbl" style="width: 92px; flex-shrink: 0">body 14</span>
+            <span style="font-size: 13.5px; color: #c6ccd6">Every component is itemised, with the rule applied to each.</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 14px; border-top: 1px solid #1a212b; padding-top: 11px">
+            <span class="lbl" style="width: 92px; flex-shrink: 0">money 22</span>
+            <span class="num" style="font-size: 21px; color: #eef1f5; letter-spacing: -0.01em">&#8377; 3,00,200.00</span>
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 14px; border-top: 1px solid #1a212b; padding-top: 11px">
+            <span class="lbl" style="width: 92px; flex-shrink: 0">label 10.5</span>
+            <span class="lbl">Assessed market value</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; align-items: baseline; justify-content: space-between">
+          <h3 style="font-size: 15px">Controls and states</h3>
+          <span class="lbl">7px radius &middot; 1px lines</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 9px; align-items: center">
+          <button class="btn" style="border: 1px solid transparent; background: #ffb020; color: #1a1200; font-weight: 600">Approve</button>
+          <button class="btn" style="border: 1px solid #232b38; background: #161c25; color: #c6ccd6">Secondary</button>
+          <button class="btn" style="border: 1px solid rgba(255,107,107,0.4); background: rgba(255,107,107,0.1); color: #ff8f8f">Reject</button>
+          <button class="btn" style="border: 1px solid #232b38; background: #10141b; color: #3d4554" disabled>Disabled</button>
+          <button class="btn" style="border: 1px solid #ffb020; background: #161c25; color: #c6ccd6; box-shadow: 0 0 0 3px rgba(255,176,32,0.22)">Focused</button>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+          <span style="font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; background: rgba(87,224,161,0.12); color: #57e0a1; border: 1px solid rgba(87,224,161,0.3)">Registered</span>
+          <span style="font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; background: rgba(255,176,32,0.12); color: #ffb020; border: 1px solid rgba(255,176,32,0.3)">Under review</span>
+          <span style="font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; background: rgba(79,208,224,0.12); color: #4fd0e0; border: 1px solid rgba(79,208,224,0.3)">Awaiting payment</span>
+          <span style="font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; background: rgba(255,107,107,0.12); color: #ff8f8f; border: 1px solid rgba(255,107,107,0.3)">Needs review</span>
+          <span style="font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; background: #161c25; color: #566073; border: 1px solid #232b38">Loaded</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 7px; border-top: 1px solid #1a212b; padding-top: 13px">
+          <span class="lbl">Spacing scale</span>
+          <div style="display: flex; align-items: flex-end; gap: 7px">
+            <div style="width: 4px; height: 4px; background: #ffb020"></div>
+            <div style="width: 8px; height: 8px; background: #ffb020"></div>
+            <div style="width: 12px; height: 12px; background: #ffb020"></div>
+            <div style="width: 16px; height: 16px; background: #ffb020"></div>
+            <div style="width: 20px; height: 20px; background: #ffb020; opacity: 0.8"></div>
+            <div style="width: 28px; height: 28px; background: #ffb020; opacity: 0.6"></div>
+            <div style="width: 40px; height: 40px; background: #ffb020; opacity: 0.4"></div>
+            <span class="num" style="font-size: 11px; color: #566073; margin-left: 6px">4 &middot; 8 &middot; 12 &middot; 16 &middot; 20 &middot; 28 &middot; 40</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card" style="padding: 20px 22px; display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; align-items: baseline; justify-content: space-between">
+        <h3 style="font-size: 15px">How money is written</h3>
+        <span class="lbl">the detail most interfaces get wrong</span>
+      </div>
+      <div>
+        <div class="row" style="grid-template-columns: 130px 92px 1fr 200px; border-bottom-color: #232b38">
+          <span class="lbl">Currency</span><span class="lbl">Minor unit</span><span class="lbl">Stored as</span><span class="lbl">Shown as</span>
+        </div>
+        <div class="row" style="grid-template-columns: 130px 92px 1fr 200px">
+          <span style="color: #c6ccd6">INR &mdash; India</span><span class="num" style="color: #8a93a3">10<sup>2</sup></span><span class="num" style="color: #566073">30020000</span><span class="num" style="color: #eef1f5">&#8377; 3,00,200.00</span>
+        </div>
+        <div class="row" style="grid-template-columns: 130px 92px 1fr 200px">
+          <span style="color: #c6ccd6">GBP &mdash; England</span><span class="num" style="color: #8a93a3">10<sup>2</sup></span><span class="num" style="color: #566073">650000</span><span class="num" style="color: #eef1f5">&pound;6,500.00</span>
+        </div>
+        <div class="row" style="grid-template-columns: 130px 92px 1fr 200px; background: rgba(178,140,255,0.06)">
+          <span style="color: #c6ccd6">JPY &mdash; Japan</span><span class="num" style="color: #b28cff">10<sup>0</sup></span><span class="num" style="color: #566073">1250000</span><span class="num" style="color: #eef1f5">&yen;1,250,000</span>
+        </div>
+        <div class="row" style="grid-template-columns: 130px 92px 1fr 200px; border-bottom: none">
+          <span style="color: #c6ccd6">SGD &mdash; Singapore</span><span class="num" style="color: #8a93a3">10<sup>2</sup></span><span class="num" style="color: #566073">4820050</span><span class="num" style="color: #eef1f5">S$48,200.50</span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 10px; padding: 11px 13px; border-radius: 8px; background: rgba(178,140,255,0.07); border: 1px solid rgba(178,140,255,0.26)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#b28cff" stroke-width="1.8" stroke-linecap="round" style="flex-shrink: 0; margin-top: 2px">
+          <circle cx="12" cy="12" r="9.5"></circle><path d="M12 11v6M12 7.5h.01"></path>
+        </svg>
+        <p style="font-size: 12px; color: #c6ccd6; text-wrap: pretty">Yen has <strong style="color: #eef1f5">no minor unit</strong>. Grouping, decimal places and the symbol's position all come from the currency, never from a hardcoded &ldquo;divide by 100&rdquo;. A receipt reading <span class="num">&yen;12,500.00</span> is a defect, not a rounding choice &mdash; which is exactly why Japan is in the shipped set.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

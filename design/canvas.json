@@ -1,0 +1,125 @@
+{
+  "pages": [
+    { "id": "overview", "name": "Overview" },
+    { "id": "citizen", "name": "Citizen journey" },
+    { "id": "operations", "name": "Operations console" }
+  ],
+  "artboards": [
+    { "file": "Cover.dc.html", "title": "Registry — property registration payments", "page": "overview", "x": 0, "y": 0, "w": 1180, "h": 860 },
+    { "file": "Foundations.dc.html", "title": "Foundations — colour, type, money", "page": "overview", "x": 1300, "y": 0, "w": 1180, "h": 1040 },
+
+    { "file": "Jurisdiction.dc.html", "title": "01 · Choose jurisdiction", "page": "citizen", "x": 0, "y": 0, "w": 1180, "h": 1020 },
+    { "file": "Main.dc.html", "title": "02 · Review fee — Telangana", "page": "citizen", "x": 1300, "y": 0, "w": 1180, "h": 940 },
+    { "file": "Checkout.dc.html", "title": "03 · Confirming payment", "page": "citizen", "x": 2600, "y": 0, "w": 1180, "h": 860 },
+    { "file": "Declined.dc.html", "title": "04 · Payment declined", "page": "citizen", "x": 3900, "y": 0, "w": 1180, "h": 760 },
+    { "file": "Receipt.dc.html", "title": "05 · Receipt (A4)", "page": "citizen", "x": 5200, "y": 0, "w": 794, "h": 1123, "print": "fixed" },
+    { "file": "UKQuote.dc.html", "title": "06 · England — banded duty", "page": "citizen", "x": 6114, "y": 0, "w": 1180, "h": 940 },
+    { "file": "DubaiQuote.dc.html", "title": "07 · Dubai — flat percentage", "page": "citizen", "x": 7414, "y": 0, "w": 1180, "h": 900 },
+    { "file": "USQuote.dc.html", "title": "08 · California — stacked taxes and flat fees", "page": "citizen", "x": 8714, "y": 0, "w": 1180, "h": 900 },
+    { "file": "Phone.dc.html", "title": "09 · Paying on a phone", "page": "citizen", "x": 10014, "y": 0, "w": 390, "h": 844 },
+
+    { "file": "ClerkQueue.dc.html", "title": "10 · Clerk review queue", "page": "operations", "x": 0, "y": 0, "w": 1180, "h": 860 },
+    { "file": "AdminTimeline.dc.html", "title": "11 · Payment timeline", "page": "operations", "x": 1300, "y": 0, "w": 1180, "h": 900 },
+    { "file": "Reconciliation.dc.html", "title": "12 · Reconciliation", "page": "operations", "x": 2600, "y": 0, "w": 1180, "h": 860 },
+    { "file": "Registry.dc.html", "title": "13 · Jurisdiction registry", "page": "operations", "x": 3900, "y": 0, "w": 1180, "h": 820 }
+  ],
+  "annotations": [
+    {
+      "id": "overview-intro",
+      "page": "overview",
+      "x": 0,
+      "y": -230,
+      "w": 660,
+      "text": "START HERE\n\nFifteen screens, three pages: this overview, the citizen journey, and the operations console.\n\nThe product collects statutory property-transfer fees — stamp duty, transfer duty, registration and recording fees — across six jurisdictions in six currencies, then proves that each payment was taken exactly once.\n\nEvery figure on every screen is synthetic. No jurisdiction's real rates appear anywhere, and every screen says so where a citizen would see it."
+    },
+    {
+      "id": "foundations-note",
+      "page": "overview",
+      "x": 1300,
+      "y": -230,
+      "w": 620,
+      "text": "WHY TWO GROUNDS, NOT TWO DESIGNS\n\nThe dark palette is not a choice made here — it is lifted from grpc-streaming/frontend, the console already in this repo: #0a0d12 / #10141b grounds, #232b38 lines, amber #ffb020, 10px panels, 7px controls, Cambria italic over Cascadia mono.\n\nThe citizen side inverts the ground and darkens the accents for contrast on white, keeping the same type pairing, the same spacing scale and the same tabular numerals. One vocabulary, two densities.\n\nThe money table at the bottom is the detail worth reading: yen has no minor unit, so nothing in this system may divide by 100."
+    },
+    {
+      "id": "citizen-intro",
+      "page": "citizen",
+      "x": 0,
+      "y": -230,
+      "w": 640,
+      "text": "CITIZEN FLOW — light, institutional, printable.\n\nA citizen meets this once, under time pressure, paying a sum that matters. So: the fee is itemised rather than totalled, the rule behind each line is on the page rather than in a help centre, and the receipt is built to print as legal evidence.\n\nNine screens, including the two most interfaces skip — the confirmation wait and the decline."
+    },
+    {
+      "id": "webhook-truth",
+      "page": "citizen",
+      "x": 2600,
+      "y": -230,
+      "w": 580,
+      "text": "THE SCREEN THAT CARRIES THE ARCHITECTURE\n\n\"It is safe to close this page\" is only honest because the gateway's signed webhook — not the browser redirect — is what marks a payment paid.\n\nIf the webhook is lost entirely, the reconciliation job asks the gateway directly and corrects the record within about five minutes. The citizen is never the one who has to notice."
+    },
+    {
+      "id": "decline-note",
+      "page": "citizen",
+      "x": 3900,
+      "y": -230,
+      "w": 580,
+      "text": "THE STATE MOCKUPS USUALLY OMIT\n\nMost payments that go wrong go wrong here, and this is where a citizen decides whether to trust the service.\n\nSo the screen states plainly that nothing was taken, quotes the gateway's own reason rather than a generic apology, shows the attempt reference they would need if they call anyone, and says why retrying cannot double-charge them.\n\nThe filing is held, not lost. Expiry is a state change, never a delete."
+    },
+    {
+      "id": "four-quotes",
+      "page": "citizen",
+      "x": 6114,
+      "y": -230,
+      "w": 620,
+      "text": "FOUR QUOTE SCREENS, ONE CODEBASE\n\nScreens 02, 06, 07 and 08 are the same React route rendering four rule packs. They differ in currency, in the questions asked, and in the shape of the arithmetic itself:\n\n02 Telangana — proportional rates on the HIGHER of market value and price paid.\n06 England — progressive marginal BANDS, plus a first-time-buyer question no other pack declares.\n07 Dubai — a single FLAT PERCENTAGE on price paid only; a mortgage answer adds a component.\n08 California — a county tax STACKED on a city tax, plus per-document flat fees with a minimum and a cap, and a county attribute selecting a sub-schedule.\n\nFlat, proportional, banded, stacked, bounded. No application code differs between them. Four JSON files do."
+    },
+    {
+      "id": "routing-note",
+      "page": "citizen",
+      "x": 8714,
+      "y": -230,
+      "w": 580,
+      "text": "WHY THESE THREE ROUTE TO STRIPE\n\nRazorpay handles India because that is where UPI matters. It cannot charge GBP, AED or USD at all — so England, Dubai and California route to Stripe, and that routing is a config file, not an if-statement.\n\nThe check runs at boot: every pack's currency must be chargeable by its routed gateway. A pack pointed at a gateway that cannot take its currency stops the service starting, rather than failing in front of a citizen at checkout."
+    },
+    {
+      "id": "phone-note",
+      "page": "citizen",
+      "x": 10014,
+      "y": -230,
+      "w": 480,
+      "text": "ONE-HANDED, LARGE SUM\n\nThe total is pinned directly above the button so the amount and the commitment are never separated by a scroll.\n\nThe hold time is stated on the same surface, because the most common mobile failure is not a decline — it is a citizen abandoning the page unsure whether leaving costs them the filing."
+    },
+    {
+      "id": "ops-intro",
+      "page": "operations",
+      "x": 0,
+      "y": -230,
+      "w": 640,
+      "text": "OPERATIONS — the repo's existing night-ops console, matched.\n\nOperators live in this tool all day, so density and a dark ground earn their place here in a way they would not on a citizen's one-off payment page.\n\nEvery destructive or recorded action names its actor: a rejection needs a typed reason, and the reason is quoted back on the audit timeline next door."
+    },
+    {
+      "id": "ledger-note",
+      "page": "operations",
+      "x": 1300,
+      "y": -230,
+      "w": 580,
+      "text": "ONE TIMELINE, NOT FOUR SCREENS\n\nState changes, webhook receipts, reconciliation runs and ledger entries are merged in time order — which is what makes an audit answerable in a single view.\n\nThe closing row is the invariant: net £0.00 after a full refund, computed per currency and never summed across them. Nothing here was edited or deleted; the ledger only ever gains rows."
+    },
+    {
+      "id": "no-autocorrect",
+      "page": "operations",
+      "x": 2600,
+      "y": -230,
+      "w": 580,
+      "text": "THE DELIBERATE REFUSAL\n\nREG-2026-0031 shows the gateway and our record disagreeing on the amount. The system does not reconcile that away — it flags it for a person and stops.\n\nAuto-correcting a money discrepancy hides the incident that caused it. A stale payment, by contrast, is not a lost payment: it is simply one the gateway has not answered about yet."
+    },
+    {
+      "id": "registry-note",
+      "page": "operations",
+      "x": 3900,
+      "y": -230,
+      "w": 580,
+      "text": "PLUGGABILITY, MADE VISIBLE\n\nSix jurisdictions' fee rules as rows in a table, because they are data — versioned JSON packs, not branches in the code.\n\nFive are live end to end; Singapore is loaded and unit-tested but not yet offered to citizens. Dubai and California were promoted by changing one config line, which is the whole claim of the design.\n\nEvery pack is checked at startup: an unsourced rate, an unroutable jurisdiction, or a currency its gateway cannot charge all fail the boot rather than a demo."
+    }
+  ],
+  "launch": { "view": "canvas", "page": "overview" }
+}

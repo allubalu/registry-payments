@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; background: #fbfaf7; color: #55606f;
+      font: 14px/1.55 -apple-system, 'Segoe UI', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: Cambria, Constantia, Georgia, serif; color: #14181f; margin: 0; }
+    p { margin: 0; }
+    a { color: #b07000; } a:hover { color: #8a5600; }
+    .mono { font-family: 'Cascadia Code', 'Cascadia Mono', Consolas, ui-monospace, monospace;
+      font-variant-numeric: tabular-nums; }
+    .lbl { font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #8a93a3; }
+  </style>
+</helmet>
+
+<div style="width: 1180px; min-height: 860px; display: flex; flex-direction: column; background: #fbfaf7">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px 32px; border-bottom: 1px solid #e2ded4; background: #ffffff">
+    <div style="display: flex; align-items: baseline; gap: 10px">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#b07000" stroke-width="1.7" stroke-linecap="round" style="align-self: center">
+        <path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"></path>
+      </svg>
+      <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 21px; font-style: italic; color: #14181f; letter-spacing: 0.02em">Registry</span>
+      <span class="lbl">Telangana, India</span>
+    </div>
+    <span class="mono" style="font-size: 12px; color: #8a93a3">REG-2026-0041</span>
+  </div>
+
+  <div style="flex-grow: 1; padding: 48px 32px; display: flex; justify-content: center">
+    <div style="width: 100%; max-width: 900px; display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 26px; align-items: start">
+
+      <div style="background: #ffffff; border: 1px solid #e2ded4; border-radius: 10px; padding: 34px; display: flex; flex-direction: column; gap: 26px; box-shadow: 0 1px 3px rgba(20, 24, 31, 0.05)">
+
+        <div style="display: flex; align-items: center; gap: 15px">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#b07000" stroke-width="1.9" stroke-linecap="round">
+            <path d="M12 3.2a8.8 8.8 0 1 0 8.8 8.8" opacity="0.9"></path>
+            <path d="M12 3.2a8.8 8.8 0 0 1 8.8 8.8" opacity="0.18"></path>
+          </svg>
+          <div style="display: flex; flex-direction: column; gap: 3px">
+            <h1 style="font-size: 25px; letter-spacing: -0.01em">Confirming your payment</h1>
+            <p style="font-size: 13.5px">This usually takes a few seconds.</p>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column">
+
+          <div style="display: flex; align-items: flex-start; gap: 14px">
+            <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10794f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9.5"></circle><path d="M8 12.4l2.7 2.6L16 9.6"></path>
+              </svg>
+              <div style="width: 1.5px; height: 34px; background: #10794f; opacity: 0.35"></div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 18px">
+              <span style="font-size: 13.5px; color: #14181f; font-weight: 600">Payment taken by the gateway</span>
+              <span class="mono" style="font-size: 11.5px; color: #8a93a3">UPI &middot; &#8377;&nbsp;3,00,200.00 &middot; 14:02:44</span>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: flex-start; gap: 14px">
+            <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b07000" stroke-width="2.2" stroke-linecap="round">
+                <circle cx="12" cy="12" r="9.5" opacity="0.3"></circle><path d="M12 2.5a9.5 9.5 0 0 1 9.5 9.5"></path>
+              </svg>
+              <div style="width: 1.5px; height: 34px; background: #e2ded4"></div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 18px">
+              <span style="font-size: 13.5px; color: #14181f; font-weight: 600">Waiting for confirmation from the gateway</span>
+              <span style="font-size: 12px; color: #8a93a3">We confirm directly with the gateway, not from your browser.</span>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: flex-start; gap: 14px">
+            <div style="flex-shrink: 0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#cbc5b6" stroke-width="2" stroke-linecap="round">
+                <circle cx="12" cy="12" r="9.5"></circle>
+              </svg>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 2px">
+              <span style="font-size: 13.5px; color: #8a93a3">Application marked as paid</span>
+              <span style="font-size: 12px; color: #8a93a3">Your receipt becomes available here.</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="background: rgba(13, 124, 140, 0.06); border: 1px solid rgba(13, 124, 140, 0.28); border-radius: 9px; padding: 15px 17px; display: flex; align-items: flex-start; gap: 11px">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0d7c8c" stroke-width="1.8" stroke-linecap="round" style="flex-shrink: 0; margin-top: 1px">
+            <path d="M12 2.7 4 6v6c0 4.4 3.4 8 8 9.3 4.6-1.3 8-4.9 8-9.3V6l-8-3.3z"></path><path d="M9.2 12.2l2 2 3.6-4"></path>
+          </svg>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <p style="font-size: 13px; color: #0a5f6b; font-weight: 600">It is safe to close this page</p>
+            <p style="font-size: 12.5px; color: #55606f; text-wrap: pretty">Your payment is confirmed with the gateway directly, so closing this page or losing signal will not affect it. Sign back in at any time to see the current status.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 14px">
+
+        <div style="background: #ffffff; border: 1px solid #e2ded4; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 14px">
+          <span class="lbl">This application</span>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px">
+              <span style="font-size: 12.5px; color: #8a93a3">Reference</span>
+              <span class="mono" style="font-size: 12.5px; color: #14181f">REG-2026-0041</span>
+            </div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px">
+              <span style="font-size: 12.5px; color: #8a93a3">Jurisdiction</span>
+              <span class="mono" style="font-size: 12.5px; color: #14181f">IN-TG</span>
+            </div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px">
+              <span style="font-size: 12.5px; color: #8a93a3">Amount</span>
+              <span class="mono" style="font-size: 12.5px; color: #14181f">&#8377; 3,00,200.00</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px">
+              <span style="font-size: 12.5px; color: #8a93a3">Status</span>
+              <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; background: rgba(176, 112, 0, 0.13); color: #8a5600">
+                <span style="width: 5px; height: 5px; border-radius: 50%; background: currentColor"></span>Confirming
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid #e2ded4; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+          <span class="lbl">Paid through</span>
+          <div style="display: flex; align-items: center; gap: 11px">
+            <div style="width: 34px; height: 34px; border-radius: 8px; background: #f2f0ea; border: 1px solid #e2ded4; display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#55606f" stroke-width="1.8" stroke-linecap="round">
+                <rect x="2.5" y="5.5" width="19" height="13" rx="2.2"></rect><path d="M2.5 10h19"></path>
+              </svg>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+              <span style="font-size: 13px; color: #14181f">Razorpay</span>
+              <span style="font-size: 11.5px; color: #8a93a3">Routed for Indian jurisdictions</span>
+            </div>
+          </div>
+          <p style="font-size: 11.5px; color: #8a93a3; text-wrap: pretty; padding-top: 2px; border-top: 1px solid #f2f0ea">UPI, netbanking and cards are offered by the gateway. This service never sees your payment credentials.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

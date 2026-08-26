@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; background: #fbfaf7; color: #55606f;
+      font: 14px/1.55 -apple-system, 'Segoe UI', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: Cambria, Constantia, Georgia, serif; color: #14181f; margin: 0; }
+    p { margin: 0; }
+    .mono { font-family: 'Cascadia Code', 'Cascadia Mono', Consolas, ui-monospace, monospace;
+      font-variant-numeric: tabular-nums; }
+    .lbl { font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #8a93a3; }
+  </style>
+</helmet>
+
+<div style="width: 1180px; min-height: 760px; display: flex; flex-direction: column; background: #fbfaf7">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px 32px; border-bottom: 1px solid #e2ded4; background: #ffffff">
+    <div style="display: flex; align-items: baseline; gap: 10px">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#b07000" stroke-width="1.7" stroke-linecap="round" style="align-self: center">
+        <path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"></path>
+      </svg>
+      <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 21px; font-style: italic; color: #14181f; letter-spacing: 0.02em">Registry</span>
+      <span class="lbl">Telangana, India</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px">
+      <span class="mono" style="font-size: 12px; color: #8a93a3">priya.n@example.in</span>
+      <span style="font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; background: #f2f0ea; color: #55606f">Citizen</span>
+    </div>
+  </div>
+
+  <div style="flex-grow: 1; padding: 44px 32px 48px; display: flex; justify-content: center">
+    <div style="width: 100%; max-width: 900px; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 30px; align-items: start">
+
+      <div style="display: flex; flex-direction: column; gap: 22px">
+
+        <div style="display: flex; align-items: flex-start; gap: 14px">
+          <span style="width: 40px; height: 40px; border-radius: 50%; background: rgba(179, 38, 30, 0.09); border: 1px solid rgba(179, 38, 30, 0.28); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b3261e" stroke-width="1.9" stroke-linecap="round">
+              <circle cx="12" cy="12" r="9.5"></circle><path d="M15 9l-6 6M9 9l6 6"></path>
+            </svg>
+          </span>
+          <div style="display: flex; flex-direction: column; gap: 7px">
+            <h1 style="font-size: 27px; letter-spacing: -0.01em">Your bank declined the payment</h1>
+            <p style="font-size: 14.5px; max-width: 52ch; text-wrap: pretty">Nothing was taken. Your filing is still open and the fee has not changed &mdash; you can try again with the same or a different method.</p>
+          </div>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid #e2ded4; border-radius: 10px; overflow: hidden">
+          <div style="padding: 15px 20px; border-bottom: 1px solid #e2ded4; display: flex; align-items: center; justify-content: space-between">
+            <h3 style="font-size: 15px">What we know</h3>
+            <span class="lbl">reported by the gateway</span>
+          </div>
+          <div style="padding: 6px 20px 16px">
+            <div style="display: grid; grid-template-columns: 168px 1fr; gap: 12px; padding: 11px 0; border-bottom: 1px solid #f2f0ea">
+              <span class="lbl" style="align-self: center">Attempted</span>
+              <span class="mono" style="font-size: 13.5px; color: #14181f">&#8377; 3,00,200.00 &middot; UPI</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 168px 1fr; gap: 12px; padding: 11px 0; border-bottom: 1px solid #f2f0ea">
+              <span class="lbl" style="align-self: center">Gateway reason</span>
+              <span style="font-size: 13.5px; color: #14181f">Insufficient funds <span class="mono" style="color: #8a93a3; font-size: 12px">(BAD_REQUEST_ERROR)</span></span>
+            </div>
+            <div style="display: grid; grid-template-columns: 168px 1fr; gap: 12px; padding: 11px 0; border-bottom: 1px solid #f2f0ea">
+              <span class="lbl" style="align-self: center">Attempt reference</span>
+              <span class="mono" style="font-size: 13px; color: #55606f">pay_TgQ4mK92xL01aB</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 168px 1fr; gap: 12px; padding: 11px 0">
+              <span class="lbl" style="align-self: center">Recorded at</span>
+              <span class="mono" style="font-size: 13px; color: #55606f">2026-08-25 14:02:48 IST</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: flex-start; gap: 11px; padding: 15px 17px; border-radius: 10px; background: rgba(16, 121, 79, 0.06); border: 1px solid rgba(16, 121, 79, 0.26)">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#10794f" stroke-width="1.9" stroke-linecap="round" style="flex-shrink: 0; margin-top: 1px">
+            <path d="M20 6 9 17l-5-5"></path>
+          </svg>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <p style="font-size: 13px; color: #0c5f3e; font-weight: 600">A failed attempt can never become a charge</p>
+            <p style="font-size: 12.5px; color: #55606f; text-wrap: pretty">Each attempt is recorded separately, and a filing can only ever hold <strong>one</strong> successful payment &mdash; enforced in the database, not just in code. Retrying is safe however many times it takes.</p>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px">
+          <button style="font: inherit; font-weight: 600; font-size: 14px; padding: 11px 20px; border-radius: 7px; border: 1px solid transparent; background: #b07000; color: #fff7e8; cursor: pointer; letter-spacing: 0.02em">Try again &mdash; &#8377; 3,00,200.00</button>
+          <button style="font: inherit; font-size: 13.5px; font-weight: 600; padding: 11px 17px; border-radius: 7px; border: 1px solid #cbc5b6; background: transparent; color: #55606f; cursor: pointer">Choose another method</button>
+          <a href="#" style="font-size: 13px; margin-left: 4px">Save and come back later</a>
+        </div>
+
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <div style="background: #ffffff; border: 1px solid #e2ded4; border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 13px">
+          <span class="lbl">Your filing</span>
+          <div style="display: flex; flex-direction: column; gap: 3px">
+            <span style="font-family: Cambria, Constantia, Georgia, serif; font-size: 18px; color: #14181f">REG-2026-0041</span>
+            <span style="font-size: 12.5px">Apartment &middot; Rangareddy &middot; Sale</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px">
+            <span style="width: 7px; height: 7px; border-radius: 50%; background: #b07000"></span>
+            <span style="font-size: 12.5px; color: #14181f; font-weight: 600">Awaiting payment</span>
+          </div>
+          <div style="border-top: 1px solid #f2f0ea; padding-top: 12px; display: flex; align-items: baseline; justify-content: space-between">
+            <span class="lbl">Held until</span>
+            <span class="mono" style="font-size: 13px; color: #14181f">14:32 &middot; 26 min</span>
+          </div>
+          <p style="font-size: 11.5px; color: #8a93a3; text-wrap: pretty">After that the filing expires rather than being deleted &mdash; the record of it stays, and you can file again from the same details.</p>
+        </div>
+
+        <div style="border: 1px solid #e2ded4; border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 9px; background: #faf8f3">
+          <span class="lbl">Attempts</span>
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px">
+            <span class="mono" style="font-size: 12px; color: #55606f">14:02:48</span>
+            <span style="font-size: 12px; color: #b3261e; font-weight: 600">Declined</span>
+          </div>
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; opacity: 0.55">
+            <span class="mono" style="font-size: 12px; color: #55606f">13:58:11</span>
+            <span style="font-size: 12px; color: #8a93a3">Abandoned</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
