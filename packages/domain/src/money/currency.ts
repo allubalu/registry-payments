@@ -17,9 +17,12 @@ export interface CurrencyDefinition {
 }
 
 export class UnknownCurrencyError extends Error {
-  constructor(readonly code: string) {
+  readonly code: string
+
+  constructor(code: string) {
     super(`Unknown currency code: ${code}`)
     this.name = 'UnknownCurrencyError'
+    this.code = code
   }
 }
 

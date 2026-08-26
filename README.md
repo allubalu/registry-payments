@@ -27,7 +27,7 @@ See `docs/superpowers/specs/` for the full requirements.
 npm install
 npm test             # unit tests
 npm run lint         # oxlint
-npm run build        # type-check and emit
+npm run typecheck    # type-check src and tests
 npm run quote -- --all
 ```
 
