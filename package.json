@@ -6,7 +6,7 @@
   "engines": { "node": ">=22" },
   "workspaces": ["packages/*"],
   "scripts": {
-    "build": "tsc -b packages/domain",
+    "typecheck": "tsc -p packages/domain",
     "test": "npm run test --workspaces --if-present",
     "lint": "oxlint packages tools",
     "quote": "node --experimental-strip-types tools/quote.ts"

@@ -1,0 +1,59 @@
+{
+  "id": "SG",
+  "jurisdictionLabel": "Singapore (synthetic)",
+  "currency": "SGD",
+  "version": "2026.1",
+  "timezone": "Asia/Singapore",
+  "provenance": "SYNTHETIC",
+  "packSource": null,
+  "packRetrievedAt": null,
+  "basisStrategy": "CONSIDERATION_ONLY",
+  "requiredAttributes": [
+    {
+      "name": "residency",
+      "kind": "string",
+      "label": "Buyer status",
+      "options": ["CITIZEN_FIRST_PROPERTY", "CITIZEN_SECOND_PROPERTY", "FOREIGNER"]
+    }
+  ],
+  "components": [
+    {
+      "code": "BUYER_STAMP_DUTY",
+      "label": "Buyer stamp duty",
+      "kind": "PROGRESSIVE_BANDS",
+      "rounding": "HALF_UP",
+      "bands": [
+        { "upToMinor": "18000000", "ratePpm": 10000 },
+        { "upToMinor": "36000000", "ratePpm": 20000 },
+        { "upToMinor": "100000000", "ratePpm": 30000 },
+        { "upToMinor": null, "ratePpm": 40000 }
+      ]
+    },
+    {
+      "code": "ADDITIONAL_BUYER_STAMP_DUTY_SECOND",
+      "label": "Additional buyer stamp duty — second property",
+      "kind": "PROGRESSIVE_BANDS",
+      "rounding": "HALF_UP",
+      "condition": {
+        "op": "eq",
+        "attribute": "residency",
+        "value": "CITIZEN_SECOND_PROPERTY"
+      },
+      "bands": [{ "upToMinor": null, "ratePpm": 2400 }]
+    },
+    {
+      "code": "ADDITIONAL_BUYER_STAMP_DUTY_FOREIGNER",
+      "label": "Additional buyer stamp duty — foreign buyer",
+      "kind": "PROGRESSIVE_BANDS",
+      "rounding": "HALF_UP",
+      "condition": { "op": "eq", "attribute": "residency", "value": "FOREIGNER" },
+      "bands": [{ "upToMinor": null, "ratePpm": 600000 }]
+    },
+    {
+      "code": "ELECTRONIC_LODGEMENT_FEE",
+      "label": "Electronic lodgement fee",
+      "kind": "FLAT",
+      "amountMinor": "50"
+    }
+  ]
+}

@@ -10,10 +10,25 @@
     "noImplicitOverride": true,
     "noFallthroughCasesInSwitch": true,
     "verbatimModuleSyntax": true,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "composite": true,
+
+    // Source imports carry .ts extensions so vitest and Node's
+    // --experimental-strip-types resolve them directly. Nothing consumes
+    // emitted JS — the package's "exports" points at src/index.ts — so
+    // this project type-checks rather than emits.
+    //
+    // Do NOT switch this to an emitting build without checking the output:
+    // rewriteRelativeImportExtensions rewrites `import ... from './x.ts'`
+    // but NOT `export ... from './x.ts'`, so every barrel file emits a
+    // dead .ts specifier and tsc still reports success.
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+
+    // Forbid TypeScript-only runtime constructs — parameter properties,
+    // enums, namespaces. Node's type stripping rejects them with
+    // ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX, so this turns a runtime failure
+    // in the CLI into a compile error here.
+    "erasableSyntaxOnly": true,
+
     "skipLibCheck": true
   }
 }

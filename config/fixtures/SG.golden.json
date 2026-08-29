@@ -1,0 +1,89 @@
+{
+  "packId": "SG",
+  "cases": [
+    {
+      "name": "citizen second property, both duty schedules stack",
+      "input": {
+        "propertyType": "APARTMENT",
+        "transactionType": "SALE",
+        "considerationMinor": "150000000",
+        "marketValueMinor": "150000000",
+        "attributes": { "residency": "CITIZEN_SECOND_PROPERTY" }
+      },
+      "expected": {
+        "chargeableValueMinor": "150000000",
+        "components": {
+          "BUYER_STAMP_DUTY": "4460000",
+          "ADDITIONAL_BUYER_STAMP_DUTY_SECOND": "360000",
+          "ELECTRONIC_LODGEMENT_FEE": "50"
+        },
+        "notApplied": ["ADDITIONAL_BUYER_STAMP_DUTY_FOREIGNER"],
+        "totalMinor": "4820050"
+      }
+    },
+    {
+      "name": "citizen first property pays base duty only",
+      "input": {
+        "propertyType": "APARTMENT",
+        "transactionType": "SALE",
+        "considerationMinor": "150000000",
+        "marketValueMinor": "150000000",
+        "attributes": { "residency": "CITIZEN_FIRST_PROPERTY" }
+      },
+      "expected": {
+        "chargeableValueMinor": "150000000",
+        "components": {
+          "BUYER_STAMP_DUTY": "4460000",
+          "ELECTRONIC_LODGEMENT_FEE": "50"
+        },
+        "notApplied": [
+          "ADDITIONAL_BUYER_STAMP_DUTY_SECOND",
+          "ADDITIONAL_BUYER_STAMP_DUTY_FOREIGNER"
+        ],
+        "totalMinor": "4460050"
+      }
+    },
+    {
+      "name": "foreign buyer, the second schedule dominates the first",
+      "input": {
+        "propertyType": "HOUSE",
+        "transactionType": "SALE",
+        "considerationMinor": "150000000",
+        "marketValueMinor": "150000000",
+        "attributes": { "residency": "FOREIGNER" }
+      },
+      "expected": {
+        "chargeableValueMinor": "150000000",
+        "components": {
+          "BUYER_STAMP_DUTY": "4460000",
+          "ADDITIONAL_BUYER_STAMP_DUTY_FOREIGNER": "90000000",
+          "ELECTRONIC_LODGEMENT_FEE": "50"
+        },
+        "notApplied": ["ADDITIONAL_BUYER_STAMP_DUTY_SECOND"],
+        "totalMinor": "94460050"
+      }
+    },
+    {
+      "name": "a value inside the first band only",
+      "input": {
+        "propertyType": "APARTMENT",
+        "transactionType": "SALE",
+        "considerationMinor": "18000000",
+        "marketValueMinor": "18000000",
+        "attributes": { "residency": "CITIZEN_FIRST_PROPERTY" }
+      },
+      "expected": {
+        "chargeableValueMinor": "18000000",
+        "components": {
+          "BUYER_STAMP_DUTY": "180000",
+          "ELECTRONIC_LODGEMENT_FEE": "50"
+        },
+        "notApplied": [
+          "ADDITIONAL_BUYER_STAMP_DUTY_SECOND",
+          "ADDITIONAL_BUYER_STAMP_DUTY_FOREIGNER"
+        ],
+        "totalMinor": "180050"
+      }
+    }
+  ]
+}

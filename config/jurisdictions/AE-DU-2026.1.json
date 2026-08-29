@@ -1,0 +1,61 @@
+{
+  "id": "AE-DU",
+  "jurisdictionLabel": "Dubai, United Arab Emirates (synthetic)",
+  "currency": "AED",
+  "version": "2026.1",
+  "timezone": "Asia/Dubai",
+  "provenance": "SYNTHETIC",
+  "packSource": null,
+  "packRetrievedAt": null,
+  "basisStrategy": "CONSIDERATION_ONLY",
+  "requiredAttributes": [
+    {
+      "name": "mortgaged",
+      "kind": "boolean",
+      "label": "Is this purchase financed by a mortgage?",
+      "options": null
+    },
+    {
+      "name": "loanAmountMinor",
+      "kind": "number",
+      "label": "Loan amount (minor units)",
+      "options": null
+    }
+  ],
+  "components": [
+    {
+      "code": "TRANSFER_FEE",
+      "label": "Transfer fee",
+      "kind": "PROPORTIONAL",
+      "ratePpm": 40000,
+      "rounding": "HALF_UP"
+    },
+    {
+      "code": "MORTGAGE_REGISTRATION",
+      "label": "Mortgage registration",
+      "kind": "PROPORTIONAL",
+      "ratePpm": 2500,
+      "basisAttribute": "loanAmountMinor",
+      "rounding": "HALF_UP",
+      "condition": { "op": "eq", "attribute": "mortgaged", "value": true }
+    },
+    {
+      "code": "TITLE_DEED_ISSUANCE",
+      "label": "Title deed issuance",
+      "kind": "FLAT",
+      "amountMinor": "58000"
+    },
+    {
+      "code": "KNOWLEDGE_FEE",
+      "label": "Knowledge fee",
+      "kind": "FLAT",
+      "amountMinor": "1000"
+    },
+    {
+      "code": "INNOVATION_FEE",
+      "label": "Innovation fee",
+      "kind": "FLAT",
+      "amountMinor": "1000"
+    }
+  ]
+}

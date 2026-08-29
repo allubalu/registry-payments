@@ -1,0 +1,88 @@
+{
+  "packId": "US-CA",
+  "cases": [
+    {
+      "name": "Alameda, two documents, no bound binding",
+      "input": {
+        "propertyType": "HOUSE",
+        "transactionType": "SALE",
+        "considerationMinor": "85000000",
+        "marketValueMinor": "85000000",
+        "attributes": { "county": "Alameda", "documentCount": 2 }
+      },
+      "expected": {
+        "chargeableValueMinor": "85000000",
+        "components": {
+          "COUNTY_TRANSFER_TAX": "93500",
+          "CITY_TRANSFER_TAX_ALAMEDA": "382500",
+          "RECORDING_FEE": "9500",
+          "AFFORDABLE_HOUSING_FEE": "7500"
+        },
+        "notApplied": ["CITY_TRANSFER_TAX_LOS_ANGELES"],
+        "totalMinor": "493000"
+      }
+    },
+    {
+      "name": "Los Angeles, eight documents, housing fee cap binds",
+      "input": {
+        "propertyType": "COMMERCIAL",
+        "transactionType": "SALE",
+        "considerationMinor": "85000000",
+        "marketValueMinor": "85000000",
+        "attributes": { "county": "Los Angeles", "documentCount": 8 }
+      },
+      "expected": {
+        "chargeableValueMinor": "85000000",
+        "components": {
+          "COUNTY_TRANSFER_TAX": "93500",
+          "CITY_TRANSFER_TAX_LOS_ANGELES": "480250",
+          "RECORDING_FEE": "38000",
+          "AFFORDABLE_HOUSING_FEE": "22500"
+        },
+        "notApplied": ["CITY_TRANSFER_TAX_ALAMEDA"],
+        "totalMinor": "634250"
+      }
+    },
+    {
+      "name": "San Diego charges no city tax at all",
+      "input": {
+        "propertyType": "LAND",
+        "transactionType": "SALE",
+        "considerationMinor": "85000000",
+        "marketValueMinor": "85000000",
+        "attributes": { "county": "San Diego", "documentCount": 1 }
+      },
+      "expected": {
+        "chargeableValueMinor": "85000000",
+        "components": {
+          "COUNTY_TRANSFER_TAX": "93500",
+          "RECORDING_FEE": "4750",
+          "AFFORDABLE_HOUSING_FEE": "3750"
+        },
+        "notApplied": ["CITY_TRANSFER_TAX_ALAMEDA", "CITY_TRANSFER_TAX_LOS_ANGELES"],
+        "totalMinor": "102000"
+      }
+    },
+    {
+      "name": "a low-value transfer where the county tax minimum binds",
+      "input": {
+        "propertyType": "LAND",
+        "transactionType": "GIFT",
+        "considerationMinor": "500000",
+        "marketValueMinor": "500000",
+        "attributes": { "county": "Alameda", "documentCount": 2 }
+      },
+      "expected": {
+        "chargeableValueMinor": "500000",
+        "components": {
+          "COUNTY_TRANSFER_TAX": "1000",
+          "CITY_TRANSFER_TAX_ALAMEDA": "2250",
+          "RECORDING_FEE": "9500",
+          "AFFORDABLE_HOUSING_FEE": "7500"
+        },
+        "notApplied": ["CITY_TRANSFER_TAX_LOS_ANGELES"],
+        "totalMinor": "20250"
+      }
+    }
+  ]
+}

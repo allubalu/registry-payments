@@ -1,0 +1,65 @@
+{
+  "id": "GB-ENG",
+  "jurisdictionLabel": "England, United Kingdom (synthetic)",
+  "currency": "GBP",
+  "version": "2026.1",
+  "timezone": "Europe/London",
+  "provenance": "SYNTHETIC",
+  "packSource": null,
+  "packRetrievedAt": null,
+  "basisStrategy": "CONSIDERATION_ONLY",
+  "requiredAttributes": [
+    {
+      "name": "firstTimeBuyer",
+      "kind": "boolean",
+      "label": "Is this your first property purchase?",
+      "options": null
+    }
+  ],
+  "components": [
+    {
+      "code": "TRANSFER_DUTY_STANDARD",
+      "label": "Transfer duty",
+      "kind": "PROGRESSIVE_BANDS",
+      "rounding": "HALF_UP",
+      "condition": {
+        "op": "not",
+        "of": {
+          "op": "all",
+          "of": [
+            { "op": "eq", "attribute": "firstTimeBuyer", "value": true },
+            { "op": "basisLte", "amountMinor": "42500000" }
+          ]
+        }
+      },
+      "bands": [
+        { "upToMinor": "15000000", "ratePpm": 0 },
+        { "upToMinor": "30000000", "ratePpm": 20000 },
+        { "upToMinor": null, "ratePpm": 30000 }
+      ]
+    },
+    {
+      "code": "TRANSFER_DUTY_FIRST_TIME_BUYER",
+      "label": "Transfer duty — first-time buyer relief",
+      "kind": "PROGRESSIVE_BANDS",
+      "rounding": "HALF_UP",
+      "condition": {
+        "op": "all",
+        "of": [
+          { "op": "eq", "attribute": "firstTimeBuyer", "value": true },
+          { "op": "basisLte", "amountMinor": "42500000" }
+        ]
+      },
+      "bands": [
+        { "upToMinor": "42500000", "ratePpm": 0 },
+        { "upToMinor": null, "ratePpm": 50000 }
+      ]
+    },
+    {
+      "code": "LAND_REGISTRY_FEE",
+      "label": "Land registry fee",
+      "kind": "FLAT",
+      "amountMinor": "65000"
+    }
+  ]
+}

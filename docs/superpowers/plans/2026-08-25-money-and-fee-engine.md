@@ -362,7 +362,7 @@ jobs:
 - [ ] **Step 11: Commit — this is the repository's first commit**
 
 ```bash
-cd "C:/Users/Prasanna.Allu/source/repos/allubalu"
+cd "<repo root>"
 git add .gitignore .github/workflows/ci.yml docs/superpowers payment-gateway
 git commit -m "chore: initialise payment-gateway workspace and domain package"
 ```
