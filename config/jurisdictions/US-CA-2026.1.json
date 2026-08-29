@@ -1,0 +1,66 @@
+{
+  "id": "US-CA",
+  "jurisdictionLabel": "California, United States (synthetic)",
+  "currency": "USD",
+  "version": "2026.1",
+  "timezone": "America/Los_Angeles",
+  "provenance": "SYNTHETIC",
+  "packSource": null,
+  "packRetrievedAt": null,
+  "basisStrategy": "CONSIDERATION_ONLY",
+  "requiredAttributes": [
+    {
+      "name": "county",
+      "kind": "string",
+      "label": "County recorder",
+      "options": ["Alameda", "Los Angeles", "San Diego"]
+    },
+    {
+      "name": "documentCount",
+      "kind": "number",
+      "label": "Documents to record",
+      "options": null
+    }
+  ],
+  "components": [
+    {
+      "code": "COUNTY_TRANSFER_TAX",
+      "label": "County documentary transfer tax",
+      "kind": "PROPORTIONAL",
+      "ratePpm": 1100,
+      "rounding": "HALF_UP",
+      "minAmountMinor": "1000"
+    },
+    {
+      "code": "CITY_TRANSFER_TAX_ALAMEDA",
+      "label": "City transfer tax — Alameda",
+      "kind": "PROPORTIONAL",
+      "ratePpm": 4500,
+      "rounding": "HALF_UP",
+      "condition": { "op": "eq", "attribute": "county", "value": "Alameda" }
+    },
+    {
+      "code": "CITY_TRANSFER_TAX_LOS_ANGELES",
+      "label": "City transfer tax — Los Angeles",
+      "kind": "PROPORTIONAL",
+      "ratePpm": 5650,
+      "rounding": "HALF_UP",
+      "condition": { "op": "eq", "attribute": "county", "value": "Los Angeles" }
+    },
+    {
+      "code": "RECORDING_FEE",
+      "label": "Recording fee",
+      "kind": "FLAT",
+      "amountMinor": "4750",
+      "timesAttribute": "documentCount"
+    },
+    {
+      "code": "AFFORDABLE_HOUSING_FEE",
+      "label": "Affordable housing fee",
+      "kind": "FLAT",
+      "amountMinor": "3750",
+      "timesAttribute": "documentCount",
+      "maxAmountMinor": "22500"
+    }
+  ]
+}
