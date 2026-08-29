@@ -93,6 +93,23 @@ export class Money {
   }
 
   /**
+   * Repeat this amount a whole number of times — a per-document fee charged
+   * once per document, say. Exact: no rounding is possible or performed.
+   *
+   * This exists so a caller never has to reach for `money.amountMinor * n`.
+   * That expression is exact too, but it puts bare arithmetic on a minor
+   * amount outside the money primitives, which is precisely what the
+   * no-float-money guard forbids — the guard cannot tell an exact bigint
+   * multiply from the start of a float bug.
+   */
+  multiplyInteger(count: bigint): Money {
+    if (count < 0n) {
+      throw new RangeError(`Money.multiplyInteger: count must not be negative, got ${count}`)
+    }
+    return new Money(this.amountMinor * count, this.currency)
+  }
+
+  /**
    * Apply an integer parts-per-million rate. 0.5% is 5000 ppm, 4% is 40000.
    * Rates are never floating-point percentages (FR-6).
    */

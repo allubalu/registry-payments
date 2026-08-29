@@ -171,3 +171,27 @@ describe('Money aggregation', () => {
     expect(() => Money.max(inr(100n), gbp(250n))).toThrow(CurrencyMismatchError)
   })
 })
+
+describe('multiplyInteger', () => {
+  it('repeats an amount a whole number of times, exactly', () => {
+    expect(Money.of(4750n, 'USD').multiplyInteger(2n).amountMinor).toBe(9500n)
+  })
+
+  it('yields zero for a count of zero', () => {
+    expect(Money.of(4750n, 'USD').multiplyInteger(0n).isZero()).toBe(true)
+  })
+
+  it('preserves the currency', () => {
+    expect(Money.of(1n, 'JPY').multiplyInteger(3n).currency).toBe('JPY')
+  })
+
+  it('stays exact far above Number.MAX_SAFE_INTEGER', () => {
+    expect(Money.of(9007199254740993n, 'USD').multiplyInteger(1000n).amountMinor).toBe(
+      9007199254740993000n,
+    )
+  })
+
+  it('rejects a negative count', () => {
+    expect(() => Money.of(1n, 'USD').multiplyInteger(-1n)).toThrow(RangeError)
+  })
+})

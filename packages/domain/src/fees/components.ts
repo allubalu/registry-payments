@@ -74,7 +74,7 @@ export function computeComponent(
         })
       } else {
         const multiplier = readNonNegativeInteger(ctx.attributes, rule.timesAttribute)
-        raw = Money.of(unit.amountMinor * multiplier, currency)
+        raw = unit.multiplyInteger(multiplier)
         appliedRules.push({
           code: 'FLAT',
           detail: `flat ${rule.amountMinor} minor units times ${rule.timesAttribute} = ${multiplier}`,
