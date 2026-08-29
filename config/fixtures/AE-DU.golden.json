@@ -1,0 +1,48 @@
+{
+  "packId": "AE-DU",
+  "cases": [
+    {
+      "name": "mortgaged apartment purchase",
+      "input": {
+        "propertyType": "APARTMENT",
+        "transactionType": "SALE",
+        "considerationMinor": "240000000",
+        "marketValueMinor": "260000000",
+        "attributes": { "mortgaged": true, "loanAmountMinor": 180000000 }
+      },
+      "expected": {
+        "chargeableValueMinor": "240000000",
+        "components": {
+          "TRANSFER_FEE": "9600000",
+          "MORTGAGE_REGISTRATION": "450000",
+          "TITLE_DEED_ISSUANCE": "58000",
+          "KNOWLEDGE_FEE": "1000",
+          "INNOVATION_FEE": "1000"
+        },
+        "notApplied": [],
+        "totalMinor": "10110000"
+      }
+    },
+    {
+      "name": "cash purchase, mortgage component does not apply",
+      "input": {
+        "propertyType": "APARTMENT",
+        "transactionType": "SALE",
+        "considerationMinor": "240000000",
+        "marketValueMinor": "240000000",
+        "attributes": { "mortgaged": false, "loanAmountMinor": 0 }
+      },
+      "expected": {
+        "chargeableValueMinor": "240000000",
+        "components": {
+          "TRANSFER_FEE": "9600000",
+          "TITLE_DEED_ISSUANCE": "58000",
+          "KNOWLEDGE_FEE": "1000",
+          "INNOVATION_FEE": "1000"
+        },
+        "notApplied": ["MORTGAGE_REGISTRATION"],
+        "totalMinor": "9660000"
+      }
+    }
+  ]
+}
