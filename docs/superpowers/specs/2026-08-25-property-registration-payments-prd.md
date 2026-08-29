@@ -3,7 +3,7 @@
 **Status:** Draft for review
 **Author:** Prasanna Allu
 **Date:** 2026-08-25
-**Classification:** Internal
+**Scope:** Personal portfolio project — contains no proprietary or employer information
 **Type:** Product Requirements Document (pre-implementation)
 
 > This document is a PRD, not yet an implementation plan. On approval it
