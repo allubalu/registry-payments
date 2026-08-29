@@ -1,0 +1,68 @@
+{
+  "packId": "IN-TG",
+  "cases": [
+    {
+      "name": "apartment sale, market value above consideration",
+      "input": {
+        "propertyType": "APARTMENT",
+        "transactionType": "SALE",
+        "considerationMinor": "480000000",
+        "marketValueMinor": "500000000",
+        "attributes": {}
+      },
+      "expected": {
+        "chargeableValueMinor": "500000000",
+        "components": {
+          "STAMP_DUTY": "20000000",
+          "TRANSFER_DUTY": "7500000",
+          "REGISTRATION_FEE": "2500000",
+          "USER_CHARGES": "20000"
+        },
+        "notApplied": [],
+        "totalMinor": "30020000"
+      }
+    },
+    {
+      "name": "consideration above market value, so consideration is charged",
+      "input": {
+        "propertyType": "HOUSE",
+        "transactionType": "SALE",
+        "considerationMinor": "600000000",
+        "marketValueMinor": "500000000",
+        "attributes": {}
+      },
+      "expected": {
+        "chargeableValueMinor": "600000000",
+        "components": {
+          "STAMP_DUTY": "24000000",
+          "TRANSFER_DUTY": "9000000",
+          "REGISTRATION_FEE": "3000000",
+          "USER_CHARGES": "20000"
+        },
+        "notApplied": [],
+        "totalMinor": "36020000"
+      }
+    },
+    {
+      "name": "a value that forces rounding on every proportional component",
+      "input": {
+        "propertyType": "LAND",
+        "transactionType": "SALE",
+        "considerationMinor": "1234567",
+        "marketValueMinor": "1234567",
+        "attributes": {}
+      },
+      "expected": {
+        "chargeableValueMinor": "1234567",
+        "components": {
+          "STAMP_DUTY": "49383",
+          "TRANSFER_DUTY": "18519",
+          "REGISTRATION_FEE": "6173",
+          "USER_CHARGES": "20000"
+        },
+        "notApplied": [],
+        "totalMinor": "94075"
+      }
+    }
+  ]
+}

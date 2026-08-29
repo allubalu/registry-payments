@@ -1,0 +1,41 @@
+{
+  "id": "IN-TG",
+  "jurisdictionLabel": "Telangana, India (synthetic)",
+  "currency": "INR",
+  "version": "2026.1",
+  "timezone": "Asia/Kolkata",
+  "provenance": "SYNTHETIC",
+  "packSource": null,
+  "packRetrievedAt": null,
+  "basisStrategy": "MAX_OF_MARKET_AND_CONSIDERATION",
+  "requiredAttributes": [],
+  "components": [
+    {
+      "code": "STAMP_DUTY",
+      "label": "Stamp duty",
+      "kind": "PROPORTIONAL",
+      "ratePpm": 40000,
+      "rounding": "HALF_UP"
+    },
+    {
+      "code": "TRANSFER_DUTY",
+      "label": "Transfer duty",
+      "kind": "PROPORTIONAL",
+      "ratePpm": 15000,
+      "rounding": "HALF_UP"
+    },
+    {
+      "code": "REGISTRATION_FEE",
+      "label": "Registration fee",
+      "kind": "PROPORTIONAL",
+      "ratePpm": 5000,
+      "rounding": "HALF_UP"
+    },
+    {
+      "code": "USER_CHARGES",
+      "label": "User charges",
+      "kind": "FLAT",
+      "amountMinor": "20000"
+    }
+  ]
+}

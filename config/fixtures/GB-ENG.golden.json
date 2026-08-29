@@ -1,0 +1,81 @@
+{
+  "packId": "GB-ENG",
+  "cases": [
+    {
+      "name": "not a first-time buyer, duty charged in marginal bands",
+      "input": {
+        "propertyType": "HOUSE",
+        "transactionType": "SALE",
+        "considerationMinor": "39500000",
+        "marketValueMinor": "39500000",
+        "attributes": { "firstTimeBuyer": false }
+      },
+      "expected": {
+        "chargeableValueMinor": "39500000",
+        "components": {
+          "TRANSFER_DUTY_STANDARD": "585000",
+          "LAND_REGISTRY_FEE": "65000"
+        },
+        "notApplied": ["TRANSFER_DUTY_FIRST_TIME_BUYER"],
+        "totalMinor": "650000"
+      }
+    },
+    {
+      "name": "first-time buyer below the threshold pays no duty",
+      "input": {
+        "propertyType": "APARTMENT",
+        "transactionType": "SALE",
+        "considerationMinor": "39500000",
+        "marketValueMinor": "39500000",
+        "attributes": { "firstTimeBuyer": true }
+      },
+      "expected": {
+        "chargeableValueMinor": "39500000",
+        "components": {
+          "TRANSFER_DUTY_FIRST_TIME_BUYER": "0",
+          "LAND_REGISTRY_FEE": "65000"
+        },
+        "notApplied": ["TRANSFER_DUTY_STANDARD"],
+        "totalMinor": "65000"
+      }
+    },
+    {
+      "name": "first-time buyer ABOVE the threshold loses relief entirely",
+      "input": {
+        "propertyType": "HOUSE",
+        "transactionType": "SALE",
+        "considerationMinor": "42500001",
+        "marketValueMinor": "42500001",
+        "attributes": { "firstTimeBuyer": true }
+      },
+      "expected": {
+        "chargeableValueMinor": "42500001",
+        "components": {
+          "TRANSFER_DUTY_STANDARD": "675000",
+          "LAND_REGISTRY_FEE": "65000"
+        },
+        "notApplied": ["TRANSFER_DUTY_FIRST_TIME_BUYER"],
+        "totalMinor": "740000"
+      }
+    },
+    {
+      "name": "exactly at the zero-rate bound, no duty",
+      "input": {
+        "propertyType": "HOUSE",
+        "transactionType": "SALE",
+        "considerationMinor": "15000000",
+        "marketValueMinor": "15000000",
+        "attributes": { "firstTimeBuyer": false }
+      },
+      "expected": {
+        "chargeableValueMinor": "15000000",
+        "components": {
+          "TRANSFER_DUTY_STANDARD": "0",
+          "LAND_REGISTRY_FEE": "65000"
+        },
+        "notApplied": ["TRANSFER_DUTY_FIRST_TIME_BUYER"],
+        "totalMinor": "65000"
+      }
+    }
+  ]
+}
