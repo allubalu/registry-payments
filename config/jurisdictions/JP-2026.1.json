@@ -1,0 +1,27 @@
+{
+  "id": "JP",
+  "jurisdictionLabel": "Japan (synthetic)",
+  "currency": "JPY",
+  "version": "2026.1",
+  "timezone": "Asia/Tokyo",
+  "provenance": "SYNTHETIC",
+  "packSource": null,
+  "packRetrievedAt": null,
+  "basisStrategy": "CONSIDERATION_ONLY",
+  "requiredAttributes": [],
+  "components": [
+    {
+      "code": "REGISTRATION_LICENCE_TAX",
+      "label": "Registration and licence tax",
+      "kind": "PROPORTIONAL",
+      "ratePpm": 20000,
+      "rounding": "FLOOR"
+    },
+    {
+      "code": "JUDICIAL_SCRIVENER_FEE",
+      "label": "Judicial scrivener fee",
+      "kind": "FLAT",
+      "amountMinor": "50000"
+    }
+  ]
+}

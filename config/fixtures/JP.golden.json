@@ -1,0 +1,43 @@
+{
+  "packId": "JP",
+  "cases": [
+    {
+      "name": "apartment sale, whole yen amounts throughout",
+      "input": {
+        "propertyType": "APARTMENT",
+        "transactionType": "SALE",
+        "considerationMinor": "60000000",
+        "marketValueMinor": "60000000",
+        "attributes": {}
+      },
+      "expected": {
+        "chargeableValueMinor": "60000000",
+        "components": {
+          "REGISTRATION_LICENCE_TAX": "1200000",
+          "JUDICIAL_SCRIVENER_FEE": "50000"
+        },
+        "notApplied": [],
+        "totalMinor": "1250000"
+      }
+    },
+    {
+      "name": "a value whose tax is fractional in yen, floored to whole yen",
+      "input": {
+        "propertyType": "HOUSE",
+        "transactionType": "SALE",
+        "considerationMinor": "12345679",
+        "marketValueMinor": "12345679",
+        "attributes": {}
+      },
+      "expected": {
+        "chargeableValueMinor": "12345679",
+        "components": {
+          "REGISTRATION_LICENCE_TAX": "246913",
+          "JUDICIAL_SCRIVENER_FEE": "50000"
+        },
+        "notApplied": [],
+        "totalMinor": "296913"
+      }
+    }
+  ]
+}
