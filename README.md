@@ -33,6 +33,34 @@ Most integrations treat the browser redirect as truth. This one does not.
 
 ---
 
+## See it run
+
+Six jurisdictions, six currencies, one engine with no jurisdiction-specific branches. Every frame below is real terminal output — no dev server, no database, no API keys.
+
+<div align="center">
+  <img src="docs/assets/currencies.gif" alt="Quotes for Japan, India and Dubai, each in its own currency" width="900">
+</div>
+
+Three currencies, three fee structures, three basis strategies — and the same `computeFee` call behind all of them.
+
+- **￥1,250,000** — a **zero-decimal** currency. Not `￥12,500.00`. Any hardcoded "divide by 100" dies here.
+- **₹50,00,000.00** — **lakh grouping**, not `₹5,000,000.00`. The chargeable value is the *higher* of market value and price paid, so `MAX_OF_MARKET_AND_CONSIDERATION` picks the ₹50,00,000 market value over the ₹48,00,000 consideration.
+- **AED 101,100.00** — a mortgage component that only exists because `mortgaged=true` was passed, charged against a *different* basis (the loan amount) from every other component.
+
+### One minor unit changes everything
+
+<div align="center">
+  <img src="docs/assets/cliff.gif" alt="Two England quotes one penny apart, first-time buyer relief applying then not" width="900">
+</div>
+
+Two runs, **one penny apart**. At £425,000.00 first-time buyer relief applies and the duty is £0.00. One minor unit higher, the relief drops out entirely and the duty jumps to £6,750.00.
+
+The registry fee is £650.00 either way — which is why the total goes **£650.00 → £7,400.00** rather than to zero. "Pays nothing" would be wrong; the relief covers duty, not fees. That boundary has a test on both sides of it.
+
+Note what the output still shows on the losing side: the relief is listed as `not applied` rather than omitted, and the 0% band is printed rather than hidden. A citizen can see the whole schedule, including the relief they missed by a penny.
+
+---
+
 ## What this project demonstrates
 
 | Capability | Evidence in this repo |
@@ -280,7 +308,7 @@ npm run quote -- --all
 No build step, no database, no API keys. The CLI exercises the real engine over the real rule packs.
 
 <details>
-<summary><b>Sample output — the England first-time-buyer cliff</b></summary>
+<summary><b>The same England quote as selectable text</b></summary>
 
 ```
 $ npm run quote -- --jurisdiction GB-ENG --consideration 42500001 --attr firstTimeBuyer=true
@@ -303,9 +331,7 @@ Basis              CONSIDERATION_ONLY
      Provenance: SYNTHETIC
 ```
 
-One minor unit lower — `42500000` — and relief applies: total drops to **£650.00**, the registry fee alone. That one-penny cliff has a test on both sides of it.
-
-Note that the disallowed relief is still **listed** as `not applied`, and the 0% band is still **shown**. A citizen can see the whole schedule, including the parts that cost nothing and the relief they narrowly missed. The golden fixtures assert on which components were skipped — so a relief silently vanishing from a pack fails CI instead of quietly under-charging.
+The golden fixtures assert on which components were **skipped**, not only on the total — so a relief silently vanishing from a rule pack fails CI instead of quietly under-charging someone.
 
 </details>
 
