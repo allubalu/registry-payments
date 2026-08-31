@@ -93,6 +93,20 @@ npm run dev:api   # Express on :4000
 npm run dev:web   # Vite on :5173, proxies /api — no CORS anywhere
 ```
 
+To re-record the browser GIF after a UI change, with both servers up:
+
+```bash
+python tools/render-ui-gif.py
+```
+
+It drives headless Chrome over the DevTools Protocol using Node's built-in
+`WebSocket` — there is deliberately no Playwright or Puppeteer here, because
+capturing a demo needs a browser, not a test framework, and the roadmap wants
+Playwright introduced with the E2E suite that justifies it. The script asserts
+the browser's totals against the same figures the CLI and the golden fixtures
+pin, and **exits without writing** if they disagree, so the recording cannot
+drift from the engine.
+
 Note the `--` before CLI flags: npm swallows them otherwise.
 
 Four checks that prove the claims rather than restating them:
@@ -232,7 +246,9 @@ registry-payments/
 │   └── tests/                   42 tests (jsdom)
 ├── tools/
 │   ├── quote.ts                 The CLI
-│   └── render-demo-gifs.py      Regenerates the README GIFs from real output
+│   ├── render-demo-gifs.py      Regenerates the terminal GIFs from real output
+│   ├── render-ui-gif.py         Regenerates the browser GIF; verifies totals first
+│   └── capture-ui-frames.mjs    CDP driver behind it (no Playwright)
 ├── docs/
 │   ├── ARCHITECTURE.md          Layer boundaries, pluggability axes
 │   ├── DOMAIN-MODEL.md          Money decisions, basis strategies, conditions
@@ -305,7 +321,7 @@ Added by Plan 3:
 | Merged PRs | #1 domain layer · #2 demo GIFs · #3 handover |
 | CI | GitHub Actions — lint, typecheck, test, client build, on push and PR |
 | Stale remote branches | `feat/money-and-fee-engine`, `docs/demo-gifs` and `docs/handover` are merged and can be deleted |
-| Known gap | No screenshot or GIF of the React client yet — the README describes it in text. Capturing one needs a headless browser the repo does not yet depend on. |
+| README assets | 3 GIFs, all regenerable from real output: `cliff.gif` and `currencies.gif` from the CLI, `quote-ui.gif` from the browser |
 
 No secrets are in the repository or its history. There is no `.env` file and
 none is needed yet — the first one arrives with the gateway adapters, and

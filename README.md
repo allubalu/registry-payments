@@ -36,7 +36,21 @@ Most integrations treat the browser redirect as truth. This one does not.
 
 ## See it run
 
-Six jurisdictions, six currencies, one engine with no jurisdiction-specific branches. Every frame below is real terminal output — no dev server, no database, no API keys.
+Six jurisdictions, six currencies, one engine with no jurisdiction-specific branches.
+
+<div align="center">
+  <img src="docs/assets/quote-ui.gif" alt="Quoting fees in England, Japan and California — the form changes shape with the jurisdiction" width="900">
+</div>
+
+**One form, four jurisdictions, no per-country code.** Watch the fields change as the jurisdiction does: England asks one question, Japan asks none, California asks for a county and a document count. Nothing in `packages/web/src` knows any of those names — the fields come from the rule pack's `requiredAttributes`.
+
+Then watch the numbers. England at £425,000.00 with first-time-buyer relief pays **£650.00**; one penny more pays **£7,400.00**, because the relief is all-or-nothing at the threshold. California charges **US$5,992.50** in Los Angeles and **US$5,015.00** in Alameda on the same US$850,000 — a sub-schedule *inside* one pack, selected by an attribute. Japan totals **JP¥1,050,000** with no decimal point anywhere, because JPY has no minor units.
+
+Every frame is a real screenshot of the real client talking to the real API. [`tools/render-ui-gif.py`](tools/render-ui-gif.py) regenerates it, and **refuses to write the GIF if the browser disagrees with the CLI or the golden fixtures** — so this recording cannot drift from the engine.
+
+### The same engine, from a terminal
+
+Every frame below is real CLI output — no dev server, no database, no API keys.
 
 <div align="center">
   <img src="docs/assets/currencies.gif" alt="Quotes for Japan, India and Dubai, each in its own currency" width="900">
@@ -343,7 +357,13 @@ Open `http://localhost:5173`. Pick a jurisdiction and the form changes shape, be
 
 `packages/web/src/components/AttributeFields.tsx` maps an attribute's *kind* to a control — `string` with options to a `select`, `boolean` to a checkbox — and contains no jurisdiction name at all. Adding a seventh country adds a JSON file and changes no component. A [guard test](packages/api/tests/guards/no-jurisdiction-branch.test.ts) fails the build if a pack id ever appears in the API or the client.
 
-The same £1 cliff from [above](#one-minor-unit-changes-everything) is reproducible in the browser, and prints the same £650.00 → £7,400.00 the CLI does.
+The same £1 cliff from [above](#one-minor-unit-changes-everything) is reproducible in the browser, and prints the same £650.00 → £7,400.00 the CLI does — that is [the recording at the top](#see-it-run).
+
+To re-record it after a UI change:
+
+```bash
+python tools/render-ui-gif.py    # with both dev servers running
+```
 
 <details>
 <summary><b>The same England quote as selectable text</b></summary>
