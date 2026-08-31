@@ -57,6 +57,59 @@ enforced by a test that reads the source (see
 
 ---
 
+## The layers above the engine
+
+```mermaid
+flowchart LR
+    subgraph client["CLIENT — packages/web"]
+        W1[JurisdictionPicker]
+        W2["AttributeFields<br/>renders requiredAttributes<br/>no country names"]
+        W3["Breakdown<br/>+ provenance banner"]
+    end
+
+    subgraph api["HTTP — packages/api"]
+        H1["GET /api/jurisdictions<br/>pack metadata, no rate schedule"]
+        H2["POST /api/fees/quote<br/>side-effect free"]
+        H3["errors.ts<br/>400 shape · 422 rules · 404 unknown"]
+    end
+
+    subgraph engine["ENGINE — packages/domain"]
+        E1[validateFeeInput]
+        E2[computeFee]
+    end
+
+    W1 -->|"fetch"| H1
+    H1 -->|"requiredAttributes"| W2
+    W2 --> W3
+    W3 -->|"MoneyWire"| H2
+    H2 --> E1 --> E2
+    E2 -.->|"FeeBreakdown, verbatim"| W3
+
+    style client fill:#faf0e6,stroke:#8c6d4a
+    style api fill:#eef1f8,stroke:#4a5c8c
+    style engine fill:#e8f4ea,stroke:#4a7c59
+```
+
+Three properties hold across this boundary.
+
+**There is no DTO layer.** `FeeBreakdown` holds `MoneyWire`, not `Money`, so the
+engine's return value *is* the response body. That looked odd when it was
+written and it was written for this.
+
+**Validation is not duplicated.** The HTTP layer parses shapes with Zod; whether
+an input is *legal* is decided by `validateFeeInput`, which the domain exports
+for exactly this. A 400 means malformed; a 422 means the rules said no.
+
+**The client cannot compute a fee.** `GET /api/jurisdictions` returns a pack's
+metadata but never its `components`, so the rate schedule stays server-side.
+The browser asks what something costs; it does not work it out.
+
+The no-jurisdiction-branching guard now covers `packages/api/src` and
+`packages/web/src` too. Without that, the engine's pluggability would be real
+and worthless — undone by one `switch` in a route or one `CaliforniaForm.tsx`.
+
+---
+
 
 ## Layout
 
@@ -71,7 +124,14 @@ payment-gateway/
 ├── config/
 │   ├── jurisdictions/        6 versioned rule packs — SYNTHETIC data
 │   └── fixtures/             19 golden cases pinning every computation
-├── tools/quote.ts            CLI; the HTTP quote endpoint will do the same work
+├── packages/api/             HTTP layer. Express; no persistence, no auth.
+│   ├── src/routes/           jurisdictions, quote
+│   ├── src/errors.ts         domain error → status code, in one place
+│   └── tests/guards/         no-jurisdiction-branch, over api/ and web/
+├── packages/web/             React 19 + Vite client. Talks HTTP only.
+│   ├── src/components/       Picker, AttributeFields, Breakdown, banner
+│   └── src/money.ts          MoneyWire → glyphs, never through a JS number
+├── tools/quote.ts            CLI; does the same work as the quote endpoint
 ├── design/                   Interface design canvas (15 artboards)
 └── docs/superpowers/
     ├── specs/                Requirements (PRD)

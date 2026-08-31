@@ -1,27 +1,34 @@
 # Handover — pick this up on another machine
 
 Everything needed to resume work with no memory of the previous session.
-Written 2026-08-31, at the end of Plan 1.
+Written 2026-08-31, at the end of Plan 3.
 
 ---
 
 ## 1. Where the project stands
 
-**Plan 1 (the pure domain layer) is complete and merged to `main`.** Nothing is
-half-finished; there is no work in progress and no stash to recover.
+**Plans 1 and 3 are complete.** Plan 1 built the pure domain layer; Plan 3 put
+an HTTP API and a React client on top of it. Nothing is half-finished; there is
+no work in progress and no stash to recover.
 
 | Built | Not built |
 |---|---|
 | `Money` value object, currency registry, rounding | Persistence (Prisma, SQLite) |
-| Fee engine (`computeFee`), rule pack loader, Zod schemas | HTTP layer (Express, routes, Zod validation) |
+| Fee engine (`computeFee`), rule pack loader, Zod schemas | Applications, state machine, expiry, ledger |
 | Six jurisdiction rule packs + golden fixtures | Auth (users, bcrypt, JWT, ownership guards) |
 | Quote CLI (`tools/quote.ts`) | `PaymentProvider` port and adapters |
-| 360 tests across 16 suites | Webhooks, idempotency, reconciliation |
-| GitHub Actions CI (typecheck, lint, test) | Refunds, ledger, receipt PDF |
-| 15 static design artboards (`design/`) | **React UI — no `.tsx` file exists yet** |
+| **HTTP API** — `GET /api/jurisdictions`, `POST /api/fees/quote` | Webhooks, idempotency, reconciliation |
+| **React client** — pack-driven quote page, all six jurisdictions | Refunds, receipt PDF |
+| 451 tests across 23 suites | Clerk queue, admin console |
+| GitHub Actions CI (typecheck, lint, test, client build) | Playwright E2E |
+| 15 static design artboards (`design/`) | |
 
-By the PRD's milestone list, **4 of 12 milestones are done** (M1, M2, M6, M6b).
-The design artboards are hand-authored static HTML mockups, not a running app.
+By the PRD's milestone list, **4 of 12 milestones are done** (M1, M2, M6, M6b),
+plus the pack-driven form metadata and quote endpoint from M3 — the rest of M3
+(applications, state machine, expiry) needs persistence first.
+
+The design artboards remain hand-authored static HTML mockups. The React client
+is a separate, working app; it does not render them.
 
 ---
 
@@ -34,7 +41,8 @@ npm install
 npm test
 ```
 
-Expect **360 passed (16 files)**. If that holds, the environment is good.
+Expect **451 passed** across 23 files — 360 domain, 49 api, 42 web. If that
+holds, the environment is good.
 
 ### Prerequisites
 
@@ -71,11 +79,33 @@ gh auth refresh -h github.com -s workflow   # only if the scope is missing
 ## 3. Verifying it actually works
 
 ```bash
-npm test          # 360 tests, ~11s
+npm test          # 451 tests across three workspaces
 npm run lint      # oxlint, silent on success
-npm run typecheck # tsc, silent on success
+npm run typecheck # tsc over domain, api and web; silent on success
 npm run quote -- --all
+npm run build:web # the only package with a build step
 ```
+
+To see it in a browser, two terminals:
+
+```bash
+npm run dev:api   # Express on :4000
+npm run dev:web   # Vite on :5173, proxies /api — no CORS anywhere
+```
+
+To re-record the browser GIF after a UI change, with both servers up:
+
+```bash
+python tools/render-ui-gif.py
+```
+
+It drives headless Chrome over the DevTools Protocol using Node's built-in
+`WebSocket` — there is deliberately no Playwright or Puppeteer here, because
+capturing a demo needs a browser, not a test framework, and the roadmap wants
+Playwright introduced with the E2E suite that justifies it. The script asserts
+the browser's totals against the same figures the CLI and the golden fixtures
+pin, and **exits without writing** if they disagree, so the recording cannot
+drift from the engine.
 
 Note the `--` before CLI flags: npm swallows them otherwise.
 
@@ -144,35 +174,37 @@ Architectural invariants that later plans must not break:
 
 ## 5. What to do next
 
-Three plans stand between here and a clickable browser UI. Two sensible orders:
-
-**A. Honest build order — start with Plan 2 (persistence).**
+**Plan 2 — persistence — is next, and there is no longer an argument against it.**
 Prisma schema, application state machine, expiry, the append-only ledger.
 
-The argument for going first: three of the hardest guarantees in the PRD are
-*database constraints*, not code. The partial unique index
+Three of the hardest guarantees in the PRD are *database constraints*, not code.
+The partial unique index
 `UNIQUE(applicationId) WHERE status IN ('AUTHORIZED','CAPTURED')` is what makes
 a double-charge structurally impossible; `UNIQUE(provider, providerEventId)` is
 what makes webhook replay a no-op. Writing payment logic before those exist
 means writing idempotency twice — once in TypeScript, once in the schema — and
 ending up with two enforcement layers where one belongs.
 
-**B. Shortcut to something clickable — Plan 3 plus a thin React quote page.**
-Express with `GET /api/jurisdictions` and `POST /api/fees/quote`, then a Vite +
-React page: jurisdiction picker, pack-driven form, live breakdown. No database,
-no payments, no auth. Roughly a third of the work of A, and it demos the most
-distinctive property of the system — a form whose fields come from a rule pack
-rather than from a per-country component.
+Plan 3 was taken first because it touches no payment state, so it created none
+of that rework. That shortcut is now spent: everything remaining involves money
+changing state, and the schema should come first.
 
-Whichever comes first, the HTTP layer is cheap because `FeeBreakdown` already
-serialises to `MoneyWire` (`{amountMinor: "1250000", currency: "JPY"}`). The
-response body is the domain object with no mapping layer, and the client
-formats with `Intl.NumberFormat` off the currency code. That is why
-`FeeBreakdown` holds `MoneyWire` rather than `Money` — it looked odd when it
-was written and it was written for this.
+### What Plan 3 leaves you
 
-`validateFeeInput` in `src/fees/compute.ts` is already exported for the HTTP
-layer to reuse, so request validation and engine validation cannot drift.
+- `createApp(registry)` in `packages/api/src/app.ts` takes an already-loaded
+  registry and never listens, so tests run the real app in-process. Add routes
+  there; add a `DbContext`-style dependency the same way.
+- `packages/api/src/errors.ts` is the single error→status mapper. New domain
+  errors get a case there and nowhere else.
+- The 400/422 split is load-bearing: 400 for a malformed body, 422 when the
+  domain refuses a well-formed one. Keep it when applications arrive.
+- `packages/web/src/money.ts` needs no currency table — `Intl.NumberFormat`
+  supplies per-currency exponents and formats decimal *strings* at arbitrary
+  precision. Do not reintroduce a table, and never route an amount through a JS
+  number.
+- The no-jurisdiction-branch guard now covers `packages/api/src` and
+  `packages/web/src`. Any new package should be added to `SCANNED_DIRECTORIES`
+  in `packages/api/tests/guards/no-jurisdiction-branch.test.ts`.
 
 ### Writing the next plan
 
@@ -203,9 +235,20 @@ registry-payments/
 │   └── tests/
 │       ├── money/  fees/        343 behavioural tests
 │       └── guards/              17 tests that read src/ as text
+├── packages/api/               HTTP. Express; no persistence, no auth.
+│   ├── src/app.ts               createApp(registry) — never listens
+│   ├── src/errors.ts            the one error → status mapper
+│   ├── src/routes/              jurisdictions · quote
+│   └── tests/                   49 tests, incl. the api+web guard
+├── packages/web/               React 19 + Vite. Talks HTTP only.
+│   ├── src/components/          AttributeFields is the whole argument
+│   ├── src/money.ts             MoneyWire → glyphs, no JS numbers
+│   └── tests/                   42 tests (jsdom)
 ├── tools/
 │   ├── quote.ts                 The CLI
-│   └── render-demo-gifs.py      Regenerates the README GIFs from real output
+│   ├── render-demo-gifs.py      Regenerates the terminal GIFs from real output
+│   ├── render-ui-gif.py         Regenerates the browser GIF; verifies totals first
+│   └── capture-ui-frames.mjs    CDP driver behind it (no Playwright)
 ├── docs/
 │   ├── ARCHITECTURE.md          Layer boundaries, pluggability axes
 │   ├── DOMAIN-MODEL.md          Money decisions, basis strategies, conditions
@@ -243,6 +286,29 @@ These cost time on the first machine. All are documented at more length in
   file with a raw ENOENT and reports "no tests" — taking every other pack's
   cases down with it.
 
+Added by Plan 3:
+
+- **Testing Library's auto-cleanup does not register when vitest `globals` is
+  off.** These suites import `describe`/`it`/`expect` explicitly, so `cleanup`
+  must be wired by hand in `packages/web/tests/setup.ts`. Without it, mounted
+  trees accumulate and every `getBy*` from the second test onward silently
+  matches the *previous* test's DOM — the failure reads as "found multiple
+  elements", which sounds like a component bug and is not.
+- **`Intl.NumberFormat.format` accepts a decimal string at runtime, but
+  TypeScript types the parameter as `` `${number}` ``.** A string built at
+  runtime cannot be narrowed to that template type, so `formatMoney` carries one
+  documented `as Intl.StringNumericLiteral` downcast. Do not "fix" it by passing
+  a `Number` — that is the precision bug the string exists to prevent.
+- **oxlint's `no-console` is an error in this repo.** Use
+  `process.stdout.write` / `process.stderr.write`, as `tools/quote.ts` does.
+- **`resolvedOptions().maximumFractionDigits` is typed `number | undefined`**
+  even for `style: 'currency'`. It is always present at runtime; the fallback in
+  `fractionDigits` exists to satisfy the type, not to paper over a real case.
+- **`form_input` on a checkbox does not fire React's change handler.** When
+  driving the UI from a browser tool, click checkboxes rather than setting them.
+  This cost a confusing "required attribute missing" 422 that was the harness,
+  not the app.
+
 ---
 
 ## 8. Repository facts
@@ -251,10 +317,11 @@ These cost time on the first machine. All are documented at more length in
 |---|---|
 | Remote | `https://github.com/allubalu/registry-payments` (public) |
 | Default branch | `main` |
-| Commits | 20, all authored `Prasanna Allu <41278750+allubalu@users.noreply.github.com>` |
-| Merged PRs | #1 domain layer · #2 demo GIFs |
-| CI | GitHub Actions — typecheck, lint, test on push and PR. Green. |
-| Stale local branches | `feat/money-and-fee-engine` and `docs/demo-gifs` are merged and can be deleted; they do not exist on a fresh clone |
+| Commits | all authored `Prasanna Allu <41278750+allubalu@users.noreply.github.com>` |
+| Merged PRs | #1 domain layer · #2 demo GIFs · #3 handover |
+| CI | GitHub Actions — lint, typecheck, test, client build, on push and PR |
+| Stale remote branches | `feat/money-and-fee-engine`, `docs/demo-gifs` and `docs/handover` are merged and can be deleted |
+| README assets | 3 GIFs, all regenerable from real output: `cliff.gif` and `currencies.gif` from the CLI, `quote-ui.gif` from the browser |
 
 No secrets are in the repository or its history. There is no `.env` file and
 none is needed yet — the first one arrives with the gateway adapters, and
