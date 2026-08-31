@@ -3,13 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "engines": { "node": ">=22" },
-  "workspaces": ["packages/*"],
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "typecheck": "tsc -p packages/domain",
+    "typecheck": "tsc -p packages/domain && tsc -p packages/api",
     "test": "npm run test --workspaces --if-present",
     "lint": "oxlint packages tools",
-    "quote": "node --experimental-strip-types tools/quote.ts"
+    "quote": "node --experimental-strip-types tools/quote.ts",
+    "dev:api": "npm run start --workspace @registry/api"
   },
   "devDependencies": {
     "@types/node": "^24.13.2",
