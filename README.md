@@ -7,8 +7,9 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-24-5FA04E?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![Zod](https://img.shields.io/badge/Zod-4.4-3E67B1)](https://zod.dev/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev/)
 [![Vitest](https://img.shields.io/badge/Vitest-3.2-6E9F18?logo=vitest&logoColor=white)](https://vitest.dev/)
-[![Tests](https://img.shields.io/badge/tests-360%20passing-brightgreen)](#proof-not-claims)
+[![Tests](https://img.shields.io/badge/tests-451%20passing-brightgreen)](#proof-not-claims)
 [![Jurisdictions](https://img.shields.io/badge/jurisdictions-6-blue)](#the-central-claim)
 
 </div>
@@ -81,11 +82,13 @@ Note what the output still shows on the losing side: the relief is listed as `no
 <tr><td><b>Language</b></td><td>TypeScript 6.0 — <code>strict</code>, <code>erasableSyntaxOnly</code>, <code>noUncheckedIndexedAccess</code></td></tr>
 <tr><td><b>Runtime</b></td><td>Node.js 24 with native type stripping — no build step, packages export source directly</td></tr>
 <tr><td><b>Validation</b></td><td>Zod 4 — recursive <code>discriminatedUnion</code> + <code>strictObject</code>, boot-time rule pack schemas</td></tr>
-<tr><td><b>Testing</b></td><td>Vitest 3.2 — 360 tests across 16 suites, including 149 generated golden-fixture assertions</td></tr>
+<tr><td><b>HTTP</b></td><td>Express 5 — two endpoints, no DTO layer: <code>FeeBreakdown</code> already serialises to the wire</td></tr>
+<tr><td><b>Client</b></td><td>React 19 + Vite 7 — a form generated from rule-pack metadata, not from per-country components</td></tr>
+<tr><td><b>Testing</b></td><td>Vitest 3.2 — 451 tests across 23 suites, including 149 generated golden-fixture assertions and an end-to-end HTTP suite</td></tr>
 <tr><td><b>Linting</b></td><td>oxlint 1.80 (Rust) — plus two source-scanning guard suites for rules a linter cannot express</td></tr>
 <tr><td><b>Monorepo</b></td><td>npm workspaces</td></tr>
-<tr><td><b>CI</b></td><td>GitHub Actions — typecheck, lint, test</td></tr>
-<tr><td><b>Planned</b></td><td>React 19 + Vite · Express · Prisma + SQLite → Postgres · Stripe + Razorpay · Playwright</td></tr>
+<tr><td><b>CI</b></td><td>GitHub Actions — typecheck, lint, test, client build</td></tr>
+<tr><td><b>Planned</b></td><td>Prisma + SQLite → Postgres · Stripe + Razorpay · Playwright</td></tr>
 </table>
 
 ---
@@ -250,6 +253,16 @@ payment-gateway/
 │       ├── money/  fees/           343 behavioural tests
 │       └── guards/                 17 tests that read src/ as TEXT
 │
+├── packages/api/                🌐 HTTP — Express over the registry, no persistence
+│   ├── src/routes/                 jurisdictions · quote
+│   ├── src/errors.ts               one place mapping domain errors to status codes
+│   └── tests/                      49 tests, incl. a guard over api/ AND web/
+│
+├── packages/web/                 🖱️ CLIENT — React 19 + Vite
+│   ├── src/components/             AttributeFields renders whatever a pack declares
+│   ├── src/money.ts                MoneyWire → glyphs, never via a JS number
+│   └── tests/                      42 tests
+│
 ├── tools/quote.ts               🖥️ CLI — proves the engine with no server
 ├── docs/                        📚 PRD · architecture · domain model · testing
 └── design/                      🎨 15 hi-fi artboards
@@ -284,10 +297,12 @@ Closed discriminated unions with exhaustive `switch` and **no `default` arm** �
 
 | Claim | How to check it |
 |---|---|
-| 360 tests pass | `npm test` |
+| 451 tests pass | `npm test` |
 | Zero engine code for the last 4 jurisdictions | `git diff --name-only HEAD~5 HEAD -- packages/domain/src` → empty |
 | No float arithmetic on money | `npm test -- no-float-money` — a guard suite that greps `src/` |
-| No jurisdiction id branched on in the engine | `npm test -- no-jurisdiction-branch` |
+| No jurisdiction id branched on in the engine, the API **or the client** | `npm test -- no-jurisdiction-branch` |
+| The browser, the CLI and the golden fixtures agree | `npm test -- quote` pins the same totals the CLI prints |
+| Money never crosses the wire as a JSON number | `npm test -- quote` — a numeric `amountMinor` is a 400 |
 | Every pack has golden fixtures | A pack without them fails CI — the suite globs the pack directory |
 | A zero-decimal currency renders correctly | `npm run quote -- --jurisdiction JP --consideration 60000000` |
 
@@ -306,6 +321,29 @@ npm run quote -- --all
 ```
 
 No build step, no database, no API keys. The CLI exercises the real engine over the real rule packs.
+
+### Run it in a browser
+
+Two terminals, no database and no configuration:
+
+```bash
+npm run dev:api    # Express on :4000, loads and validates all six packs at boot
+npm run dev:web    # Vite on :5173, proxies /api — so there is no CORS anywhere
+```
+
+Open `http://localhost:5173`. Pick a jurisdiction and the form changes shape, because **the fields come from the rule pack**:
+
+| Jurisdiction | Fields the pack asks for |
+|---|---|
+| Japan | *none* — its fees depend only on value |
+| England | a first-time-buyer checkbox |
+| Dubai | a mortgage checkbox, then a loan amount |
+| California | a county `select`, and a document count |
+| Singapore | a residency `select` of three options |
+
+`packages/web/src/components/AttributeFields.tsx` maps an attribute's *kind* to a control — `string` with options to a `select`, `boolean` to a checkbox — and contains no jurisdiction name at all. Adding a seventh country adds a JSON file and changes no component. A [guard test](packages/api/tests/guards/no-jurisdiction-branch.test.ts) fails the build if a pack id ever appears in the API or the client.
+
+The same £1 cliff from [above](#one-minor-unit-changes-everything) is reproducible in the browser, and prints the same £650.00 → £7,400.00 the CLI does.
 
 <details>
 <summary><b>The same England quote as selectable text</b></summary>
@@ -352,9 +390,11 @@ The golden fixtures assert on which components were **skipped**, not only on the
 
 ## Roadmap
 
-**Plan 1 — domain layer — is complete:** money primitives, fee engine, six jurisdictions, 360 tests, CLI.
+**Plan 1 — domain layer — is complete:** money primitives, fee engine, six jurisdictions, CLI.
 
-Next: persistence and application lifecycle (Prisma) → the `PaymentProvider` port and Stripe adapter → idempotency and reconciliation hardening → Razorpay and routing → refunds and the append-only ledger → React citizen flow, clerk queue, and admin console.
+**Plan 3 — HTTP API and quote UI — is complete:** `GET /api/jurisdictions`, `POST /api/fees/quote`, and a React page that quotes any of the six jurisdictions in the browser. No persistence, no auth, no payments.
+
+Next: persistence and application lifecycle (Prisma) → the `PaymentProvider` port and Stripe adapter → idempotency and reconciliation hardening → Razorpay and routing → refunds and the append-only ledger → clerk queue and admin console.
 
 Later plans are deliberately unwritten. Their interfaces should be authored against signatures that have actually run, not signatures that were imagined.
 

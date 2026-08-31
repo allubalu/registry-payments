@@ -85,6 +85,33 @@ describe('POST /api/fees/quote', () => {
     expect(alameda.body.total).toEqual({ amountMinor: '501500', currency: 'USD' })
   })
 
+  it('applies two stacked band schedules, selected by a residency attribute', async () => {
+    // SG is the fixture-tier pack and the hardest fee shape in the set. Covered
+    // here so all six jurisdictions are exercised over HTTP, not five.
+    const base = {
+      jurisdictionId: 'SG',
+      propertyType: 'APARTMENT',
+      transactionType: 'SALE',
+      consideration: { amountMinor: '120000000', currency: 'SGD' },
+    }
+
+    const foreigner = await post({ ...base, attributes: { residency: 'FOREIGNER' } })
+    const citizen = await post({
+      ...base,
+      attributes: { residency: 'CITIZEN_FIRST_PROPERTY' },
+    })
+
+    expect(foreigner.body.total).toEqual({ amountMinor: '75260050', currency: 'SGD' })
+    expect(citizen.body.total).toEqual({ amountMinor: '3260050', currency: 'SGD' })
+  })
+
+  it('quotes every loaded jurisdiction, so none is reachable only by the CLI', async () => {
+    const listed = await request(testApp()).get('/api/jurisdictions')
+    const ids = listed.body.jurisdictions.map((j: { id: string }) => j.id)
+
+    expect(ids).toHaveLength(6)
+  })
+
   it('reports a component that did not apply, rather than omitting it', async () => {
     // Why a relief did not fire is the interesting half of a breakdown.
     const response = await post({

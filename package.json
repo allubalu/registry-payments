@@ -10,11 +10,13 @@
     "packages/*"
   ],
   "scripts": {
-    "typecheck": "tsc -p packages/domain && tsc -p packages/api",
+    "typecheck": "tsc -p packages/domain && tsc -p packages/api && tsc -p packages/web",
     "test": "npm run test --workspaces --if-present",
     "lint": "oxlint packages tools",
     "quote": "node --experimental-strip-types tools/quote.ts",
-    "dev:api": "npm run start --workspace @registry/api"
+    "dev:api": "npm run start --workspace @registry/api",
+    "dev:web": "npm run dev --workspace @registry/web",
+    "build:web": "npm run build --workspace @registry/web"
   },
   "devDependencies": {
     "@types/node": "^24.13.2",

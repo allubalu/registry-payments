@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  domain:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,3 +18,6 @@ jobs:
       - run: npm run lint
       - run: npm run typecheck
       - run: npm test
+      # The client is the only package with a build step. Type-checking it is
+      # not enough — a bad import or a missing asset only surfaces here.
+      - run: npm run build:web
