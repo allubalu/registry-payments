@@ -345,6 +345,7 @@ The golden fixtures assert on which components were **skipped**, not only on the
 | [**Domain model**](docs/DOMAIN-MODEL.md) | The five money decisions, basis strategies, component shapes, the condition union, worked rounding examples |
 | [**Correctness strategy**](docs/TESTING.md) | Boundary testing, the source-scanning guards, the provenance guard, full 16-suite inventory |
 | [**Engineering notes**](docs/ENGINEERING-NOTES.md) | Toolchain findings, roadmap, known limitations, what is deliberately out of scope |
+| [**Handover**](docs/HANDOVER.md) | Current state, prerequisites, decisions already settled, what to build next — written for picking the project up cold |
 | [**Product requirements**](docs/superpowers/specs/2026-08-25-property-registration-payments-prd.md) | The full PRD — user journeys, functional requirements, API surface, risk register |
 
 ---
